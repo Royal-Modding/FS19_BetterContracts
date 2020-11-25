@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        "release": true,
+        "tmp": true
+    }
+}
