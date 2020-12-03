@@ -4,6 +4,7 @@
 	<version>${version}</version>
 	<title>
 		<en>Better Contracts</en>
+		<de>Bessere Vertäge</de>
 	</title>
 	<description>
 		<en>
@@ -21,15 +22,15 @@ This mod helps to improve the contract system, both in singleplayer and multypla
 		</en>
 		<de>
 			<![CDATA[
-Dieser Mod hilft, das Vertragssystem zu verbessern, sowohl in Einzelspieler und Multyplayer.
+Dieser Mod hilft das Vertragssystem zu verbessern, sowohl im Einzelspieler und Multiplayer.
 
-- Die maximale Anzahl und die Menge der generierten Mission wurde erhöht, um diejenigen zu treffen, die auf Karten mit vielen Feldern spielen.
+- Die maximale Anzahl und die Menge der generierten Missionen wurde erhöht, um denjenigen entgegenzukommen, die auf Karten mit vielen Feldern spielen.
  
 - Sie können jetzt die Generierung neuer Missionen über die Schaltfläche "Aktualisieren" auf dem Bildschirm für die Vertragsverwaltung erzwingen.
  
 - Sie können mehr als einen Vertrag gleichzeitig aktivieren.
  
-- Die Feldnummernanzeige (auf der Mini-Karte) der Felder, auf denen Sie Verträge aktivieren werden, beginnt zu blinken, um herauszufinden, wohin Sie gehen müssen.
+- Die Feldnummernanzeige (auf der Minikarte) der Felder, auf denen Sie Verträge aktivieren, beginnt zu blinken, um Ihnen den richtigen Weg zu zeigen.
 ]]>
 		</de>
 		<fr>
