@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="${descVersion}">
 	<author>${author}</author>
 	<version>${version}</version>
 	<title>
 		<en>Better Contracts</en>
-		<de>Bessere Vertäge</de>
 	</title>
 	<description>
 		<en>
@@ -47,9 +46,11 @@ Ce mod aide à améliorer le système de contrat, à la fois en solo et multypla
 ]]>
 		</fr>
 	</description>
-	<iconFilename>icon_betterContracts.dds</iconFilename>
+	<iconFilename>icon.dds</iconFilename>
 	<multiplayer supported="true" />
 	<extraSourceFiles>
+		<sourceFile filename="lib/utility/Main.lua" />
+		<sourceFile filename="lib/rmod/Main.lua" />
 		<sourceFile filename="betterContractsRefreshEvent.lua" />
 		<sourceFile filename="betterContracts.lua" />
 	</extraSourceFiles>

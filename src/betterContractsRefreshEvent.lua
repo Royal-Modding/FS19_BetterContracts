@@ -1,9 +1,8 @@
---
--- ${title}
---
--- @author ${author}
--- @version ${version}
--- @date 19/10/2020
+---${title}
+
+---@author ${author}
+---@version r_version_r
+---@date @date 19/10/2020
 
 BetterContractsRefreshEvent = {}
 BetterContractsRefreshEvent_mt = Class(BetterContractsRefreshEvent, Event)
@@ -30,17 +29,12 @@ end
 
 function BetterContractsRefreshEvent:run(connection)
     if g_server ~= nil then
-        -- If the event is coming from a client
-        BetterContractsRefreshEvent.sendEvent(self.groupName, self.eventType)
+        g_missionManager.missions = {}
+        g_missionManager.fieldToMission = {}
+        g_missionManager.generationTimer = 0
     end
 end
 
 function BetterContractsRefreshEvent.sendEvent()
-    if g_server ~= nil then
-        -- Set generationTimer to 0 so missions will be refresh at next update
-        g_missionManager.generationTimer = 0
-    else
-        -- Client have to send to server
-        g_client:getServerConnection():sendEvent(BetterContractsRefreshEvent:new())
-    end
+    g_client:getServerConnection():sendEvent(BetterContractsRefreshEvent:new())
 end

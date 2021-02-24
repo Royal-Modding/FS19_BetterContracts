@@ -1,42 +1,99 @@
---
--- ${title}
---
--- @author ${author}
--- @version ${version}
--- @date 19/10/2020
+---${title}
 
-BetterContracts = {}
-BetterContracts.name = "BetterContracts"
+---@author ${author}
+---@version r_version_r
+---@date 19/10/2020
+
+InitRoyalUtility(Utils.getFilename("lib/utility/", g_currentModDirectory))
+InitRoyalMod(Utils.getFilename("lib/rmod/", g_currentModDirectory))
+
+---@class BetterContracts : RoyalMod
+BetterContracts = RoyalMod.new(r_debug_r, false)
 BetterContracts.fieldToMission = {}
 BetterContracts.fieldToMissionUpdateTimeout = 5000
 BetterContracts.fieldToMissionUpdateTimer = 5000
 
-function BetterContracts:loadMap()
-    MissionManager.MAX_MISSIONS_PER_GENERATION = 25
-    MissionManager.MAX_TRIES_PER_GENERATION = 50
+function BetterContracts:initialize()
+    Utility.overwrittenFunction(MissionManager, "hasFarmActiveMission", BetterContracts.hasFarmActiveMission)
+    Utility.appendedFunction(InGameMenuContractsFrame, "onFrameOpen", BetterContracts.onContractsFrameOpen)
+    Utility.appendedFunction(InGameMenuContractsFrame, "onFrameClose", BetterContracts.onContractsFrameClose)
 
-    MissionManager.MAX_MISSIONS = 200
-    MissionManager.MISSION_GENERATION_INTERVAL = 1200000
+    Utility.appendedFunction(Vehicle, "load", BetterContracts.vLoad)
 
-    MissionManager.MAX_TRANSPORT_MISSIONS = 10
-
-    MissionManager.AI_PRICE_MULTIPLIER = 2
-
-    MissionManager.hasFarmActiveMission = Utils.overwrittenFunction(MissionManager.hasFarmActiveMission, BetterContracts.hasFarmActiveMission)
-
-    InGameMenuContractsFrame.onFrameOpen = Utils.appendedFunction(InGameMenuContractsFrame.onFrameOpen, BetterContracts.onContractsFrameOpen)
-    InGameMenuContractsFrame.onFrameClose = Utils.appendedFunction(InGameMenuContractsFrame.onFrameClose, BetterContracts.onContractsFrameClose)
-
-    g_currentMission.inGameMenu.onClickMenuExtra1 = Utils.overwrittenFunction(g_currentMission.inGameMenu.onClickMenuExtra1, BetterContracts.onClickMenuExtra1)
-
-    --addConsoleCommand("dcDebugMissions", "", "debugMissions", self)
+    addConsoleCommand("bcDebugMissions", "", "debugMissions", self)
 end
 
---function BetterContracts:debugMissions()
---    DebugUtil.printTableRecursively(g_missionManager.missions, nil, nil, 1)
---end
+function BetterContracts:vLoad(...)
+    print("###############")
+    print(self.configFileName)
+    print("###############")
+end
 
-function BetterContracts:update(dt)
+function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)
+    MissionManager.AI_PRICE_MULTIPLIER = 1.5
+    MissionManager.MISSION_GENERATION_INTERVAL = 3600000 -- every 1 game hour
+end
+
+function BetterContracts:onSetMissionInfo(missionInfo, missionDynamicInfo)
+    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra1", BetterContracts.onClickMenuExtra1)
+end
+
+function BetterContracts:onLoad()
+    print(Utils.getFilename("$data/vehicles/fendt/fendt700/fendt700.xml"))
+end
+
+function BetterContracts:onPreLoadMap(mapFile)
+end
+
+function BetterContracts:onCreateStartPoint(startPointNode)
+end
+
+function BetterContracts:onLoadMap(mapNode, mapFile)
+end
+
+function BetterContracts:onPostLoadMap(mapNode, mapFile)
+    local fieldsAmount = TableUtility.count(g_fieldManager.fields)
+    local adjustedFieldsAmount = math.max(fieldsAmount, 40)
+    MissionManager.MAX_MISSIONS = math.min(100, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 40 fields) max 100
+    MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 20), 2) -- max transport missions is 1/20 of maximum missions but not less then 2
+    MissionManager.MAX_MISSIONS = MissionManager.MAX_MISSIONS + MissionManager.MAX_TRANSPORT_MISSIONS -- add max transport missions to max missions
+    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS, 50) -- max missions per generation = max mission but not more then 50
+    MissionManager.MAX_TRIES_PER_GENERATION = math.ceil(MissionManager.MAX_MISSIONS_PER_GENERATION * 1.5) -- max tries per generation 50% more then max missions per generation
+    g_logManager:devInfo("[%s] Fields amount %s (%s)", self.name, fieldsAmount, adjustedFieldsAmount)
+    g_logManager:devInfo("[%s] MAX_MISSIONS set to %s", self.name, MissionManager.MAX_MISSIONS)
+    g_logManager:devInfo("[%s] MAX_TRANSPORT_MISSIONS set to %s", self.name, MissionManager.MAX_TRANSPORT_MISSIONS)
+    g_logManager:devInfo("[%s] MAX_MISSIONS_PER_GENERATION set to %s", self.name, MissionManager.MAX_MISSIONS_PER_GENERATION)
+    g_logManager:devInfo("[%s] MAX_TRIES_PER_GENERATION set to %s", self.name, MissionManager.MAX_TRIES_PER_GENERATION)
+end
+
+function BetterContracts:onLoadSavegame(savegameDirectory, savegameIndex)
+end
+
+function BetterContracts:onPreLoadVehicles(xmlFile, resetVehicles)
+end
+
+function BetterContracts:onPreLoadItems(xmlFile)
+end
+
+function BetterContracts:onPreLoadOnCreateLoadedObjects(xmlFile)
+end
+
+function BetterContracts:onLoadFinished()
+end
+
+function BetterContracts:onStartMission()
+end
+
+function BetterContracts:onMissionStarted()
+end
+
+function BetterContracts:onWriteStream(streamId)
+end
+
+function BetterContracts:onReadStream(streamId)
+end
+
+function BetterContracts:onUpdate(dt)
     self.fieldToMissionUpdateTimer = self.fieldToMissionUpdateTimer + dt
     if self.fieldToMissionUpdateTimer >= self.fieldToMissionUpdateTimeout then
         self.fieldToMission = {}
@@ -47,6 +104,51 @@ function BetterContracts:update(dt)
         end
         self.fieldToMissionUpdateTimer = 0
     end
+end
+
+function BetterContracts:onUpdateTick(dt)
+end
+
+function BetterContracts:onWriteUpdateStream(streamId, connection, dirtyMask)
+end
+
+function BetterContracts:onReadUpdateStream(streamId, timestamp, connection)
+end
+
+function BetterContracts:onMouseEvent(posX, posY, isDown, isUp, button)
+end
+
+function BetterContracts:onKeyEvent(unicode, sym, modifier, isDown)
+end
+
+function BetterContracts:onDraw()
+end
+
+function BetterContracts:onPreSaveSavegame(savegameDirectory, savegameIndex)
+end
+
+function BetterContracts:onPostSaveSavegame(savegameDirectory, savegameIndex)
+end
+
+function BetterContracts:onPreDeleteMap()
+end
+
+function BetterContracts:onDeleteMap()
+end
+
+function BetterContracts:onLoadHelpLine()
+    --return self.directory .. "gui/helpLine.xml"
+end
+
+function BetterContracts:debugMissions()
+    DebugUtil.printTableRecursively(MissionManager, nil, nil, 1)
+    print("")
+    print("#########################")
+    print("#########################")
+    print("#########################")
+    print("#########################")
+    print("")
+    DebugUtil.printTableRecursively(g_missionManager.missionVehicles, nil, nil, 6)
 end
 
 function BetterContracts:onContractsFrameOpen()
@@ -69,12 +171,12 @@ function BetterContracts:onContractsFrameClose()
     end
 end
 
-function BetterContracts:onClickMenuExtra1(superFunc, ...)
+function BetterContracts.onClickMenuExtra1(inGameMenu, superFunc, ...)
     if superFunc ~= nil then
-        superFunc(self, ...)
+        superFunc(inGameMenu, ...)
     end
-    if self.refreshContractsButton ~= nil then
-        self.refreshContractsButton.onClickCallback(self)
+    if inGameMenu.refreshContractsButton ~= nil then
+        inGameMenu.refreshContractsButton.onClickCallback(inGameMenu)
     end
 end
 
@@ -87,7 +189,7 @@ function BetterContracts:hasFarmActiveMission()
     return false
 end
 
-function BetterContracts.colorForFarm(farmId)
+function BetterContracts.colorByFarmId(farmId)
     local farm = g_farmManager:getFarmById(farmId)
     if farm ~= nil then
         local color = Farm.COLORS[farm.color]
@@ -152,7 +254,7 @@ function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
 
                 renderText(posX, posY - 1 / g_screenHeight, self.textSize * self.zoom * scale, self.fullViewName)
 
-                local r, g, b, _ = BetterContracts.colorForFarm(mission.farmId)
+                local r, g, b, _ = BetterContracts.colorByFarmId(mission.farmId)
                 setTextColor(r, g, b, alpha)
 
                 renderText(posX + 1 / g_screenWidth, posY, self.textSize * self.zoom * scale, self.fullViewName)
@@ -187,5 +289,3 @@ function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
         end
     end
 end
-
-addModEventListener(BetterContracts)
