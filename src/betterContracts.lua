@@ -14,19 +14,24 @@ BetterContracts.fieldToMissionUpdateTimeout = 5000
 BetterContracts.fieldToMissionUpdateTimer = 5000
 
 function BetterContracts:initialize()
-    Utility.overwrittenFunction(MissionManager, "hasFarmActiveMission", BetterContracts.hasFarmActiveMission)
-    Utility.appendedFunction(InGameMenuContractsFrame, "onFrameOpen", BetterContracts.onContractsFrameOpen)
+    if g_modIsLoaded["FS19_RefreshContracts"] then
+        self.needsRefreshContractsConflictsPrevention = true
+    end
+
+    if g_modIsLoaded["FS19_MoreMissionsAllowed"] then
+        self.needsMoreMissionsAllowedConflictsPrevention = true
+    end
+
+    if not self.needsMoreMissionsAllowedConflictsPrevention then
+        Utility.overwrittenFunction(MissionManager, "hasFarmActiveMission", BetterContracts.hasFarmActiveMission)
+    end
+
+    Utility.overwrittenFunction(InGameMenuContractsFrame, "sortList", BetterContracts.sortList)
+
+    Utility.overwrittenFunction(InGameMenuContractsFrame, "onFrameOpen", BetterContracts.onContractsFrameOpen)
     Utility.appendedFunction(InGameMenuContractsFrame, "onFrameClose", BetterContracts.onContractsFrameClose)
 
-    Utility.appendedFunction(Vehicle, "load", BetterContracts.vLoad)
-
-    addConsoleCommand("bcDebugMissions", "", "debugMissions", self)
-end
-
-function BetterContracts:vLoad(...)
-    print("###############")
-    print(self.configFileName)
-    print("###############")
+    DebugUtil.printTableRecursively(g_modNameToDirectory)
 end
 
 function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)
@@ -36,10 +41,10 @@ end
 
 function BetterContracts:onSetMissionInfo(missionInfo, missionDynamicInfo)
     Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra1", BetterContracts.onClickMenuExtra1)
+    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra2", BetterContracts.onClickMenuExtra2)
 end
 
 function BetterContracts:onLoad()
-    print(Utils.getFilename("$data/vehicles/fendt/fendt700/fendt700.xml"))
 end
 
 function BetterContracts:onPreLoadMap(mapFile)
@@ -57,7 +62,7 @@ function BetterContracts:onPostLoadMap(mapNode, mapFile)
     MissionManager.MAX_MISSIONS = math.min(100, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 40 fields) max 100
     MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 20), 2) -- max transport missions is 1/20 of maximum missions but not less then 2
     MissionManager.MAX_MISSIONS = MissionManager.MAX_MISSIONS + MissionManager.MAX_TRANSPORT_MISSIONS -- add max transport missions to max missions
-    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS, 50) -- max missions per generation = max mission but not more then 50
+    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS / 10, 20) -- max missions per generation = max mission / 10 but not more then 20
     MissionManager.MAX_TRIES_PER_GENERATION = math.ceil(MissionManager.MAX_MISSIONS_PER_GENERATION * 1.5) -- max tries per generation 50% more then max missions per generation
     g_logManager:devInfo("[%s] Fields amount %s (%s)", self.name, fieldsAmount, adjustedFieldsAmount)
     g_logManager:devInfo("[%s] MAX_MISSIONS set to %s", self.name, MissionManager.MAX_MISSIONS)
@@ -73,6 +78,9 @@ function BetterContracts:onPreLoadVehicles(xmlFile, resetVehicles)
 end
 
 function BetterContracts:onPreLoadItems(xmlFile)
+    if g_server ~= nil then
+        self:onLoadExtraMissionVehicles()
+    end
 end
 
 function BetterContracts:onPreLoadOnCreateLoadedObjects(xmlFile)
@@ -82,15 +90,12 @@ function BetterContracts:onLoadFinished()
 end
 
 function BetterContracts:onStartMission()
+    if g_server == nil then
+        self:onLoadExtraMissionVehicles()
+    end
 end
 
 function BetterContracts:onMissionStarted()
-end
-
-function BetterContracts:onWriteStream(streamId)
-end
-
-function BetterContracts:onReadStream(streamId)
 end
 
 function BetterContracts:onUpdate(dt)
@@ -104,21 +109,6 @@ function BetterContracts:onUpdate(dt)
         end
         self.fieldToMissionUpdateTimer = 0
     end
-end
-
-function BetterContracts:onUpdateTick(dt)
-end
-
-function BetterContracts:onWriteUpdateStream(streamId, connection, dirtyMask)
-end
-
-function BetterContracts:onReadUpdateStream(streamId, timestamp, connection)
-end
-
-function BetterContracts:onMouseEvent(posX, posY, isDown, isUp, button)
-end
-
-function BetterContracts:onKeyEvent(unicode, sym, modifier, isDown)
 end
 
 function BetterContracts:onDraw()
@@ -140,34 +130,180 @@ function BetterContracts:onLoadHelpLine()
     --return self.directory .. "gui/helpLine.xml"
 end
 
-function BetterContracts:debugMissions()
-    DebugUtil.printTableRecursively(MissionManager, nil, nil, 1)
-    print("")
-    print("#########################")
-    print("#########################")
-    print("#########################")
-    print("#########################")
-    print("")
-    DebugUtil.printTableRecursively(g_missionManager.missionVehicles, nil, nil, 6)
+function BetterContracts:onLoadExtraMissionVehicles()
+    self:loadExtraMissionVehicles(self.directory .. "missionVehicles/baseGame.xml")
+    self:loadExtraMissionVehicles(self.directory .. "missionVehicles/claasPack.xml")
 end
 
-function BetterContracts:onContractsFrameOpen()
-    -- add button for contracts refreshing
-    if g_currentMission.inGameMenu.refreshContractsButton == nil then
-        g_currentMission.inGameMenu.refreshContractsButton = g_currentMission.inGameMenu.menuButton[1]:clone(self)
-        g_currentMission.inGameMenu.refreshContractsButton.onClickCallback = BetterContracts.onClickRefreshCallback
-        g_currentMission.inGameMenu.refreshContractsButton:setText(g_i18n:getText("refresh_contracts"))
-        g_currentMission.inGameMenu.refreshContractsButton:setInputAction("MENU_EXTRA_1")
-        g_currentMission.inGameMenu.menuButton[1].parent:addElement(g_currentMission.inGameMenu.refreshContractsButton)
+function BetterContracts:loadExtraMissionVehicles(xmlFilename)
+    local xmlFile = loadXMLFile("loadExtraMissionVehicles", xmlFilename)
+    local modDirectory = nil
+    local requiredMod = getXMLString(xmlFile, "missionVehicles#requiredMod")
+    local hasRequiredMod = false
+    if requiredMod ~= nil and g_modIsLoaded[requiredMod] then
+        modDirectory = g_modNameToDirectory[requiredMod]
+        hasRequiredMod = true
+    end
+    if hasRequiredMod or requiredMod == nil then
+        local index = 0
+        while true do
+            local baseKey = string.format("missionVehicles.mission(%d)", index)
+            if hasXMLProperty(xmlFile, baseKey) then
+                local missionType = getXMLString(xmlFile, baseKey .. "#type") or ""
+                if missionType ~= "" then
+                    if g_missionManager.missionVehicles[missionType] == nil then
+                        g_missionManager.missionVehicles[missionType] = {}
+                        g_missionManager.missionVehicles[missionType].small = {}
+                        g_missionManager.missionVehicles[missionType].medium = {}
+                        g_missionManager.missionVehicles[missionType].large = {}
+                    end
+                    self:loadExtraMissionVehicles_groups(xmlFile, baseKey, missionType, modDirectory)
+                end
+            else
+                break
+            end
+            index = index + 1
+        end
+    end
+    delete(xmlFile)
+end
+
+function BetterContracts:loadExtraMissionVehicles_groups(xmlFile, baseKey, missionType, modDirectory)
+    local index = 0
+    while true do
+        local groupKey = string.format("%s.group(%d)", baseKey, index)
+        if hasXMLProperty(xmlFile, groupKey) then
+            local group = {}
+            local fieldSize = getXMLString(xmlFile, groupKey .. "#fieldSize") or "missingFieldSize"
+            group.variant = getXMLString(xmlFile, groupKey .. "#variant")
+            group.rewardScale = getXMLFloat(xmlFile, groupKey .. "#rewardScale") or 1
+            group.identifier = #g_missionManager.missionVehicles[missionType][fieldSize] + 1
+            group.vehicles = self:loadExtraMissionVehicles_vehicles(xmlFile, groupKey, modDirectory)
+            table.insert(g_missionManager.missionVehicles[missionType][fieldSize], group)
+        else
+            break
+        end
+        index = index + 1
+    end
+end
+
+function BetterContracts:loadExtraMissionVehicles_vehicles(xmlFile, groupKey, modDirectory)
+    local index = 0
+    local vehicles = {}
+    while true do
+        local vehicleKey = string.format("%s.vehicle(%d)", groupKey, index)
+        if hasXMLProperty(xmlFile, vehicleKey) then
+            local vehicle = {}
+            local baseDirectory = nil
+            if getXMLBool(xmlFile, vehicleKey .. "#isMod") then
+                baseDirectory = modDirectory
+            end
+            vehicle.filename = Utils.getFilename(getXMLString(xmlFile, vehicleKey .. "#filename") or "missingFilename", baseDirectory)
+            vehicle.configurations = self:loadExtraMissionVehicles_configurations(xmlFile, vehicleKey)
+            table.insert(vehicles, vehicle)
+        else
+            break
+        end
+        index = index + 1
+    end
+    return vehicles
+end
+
+function BetterContracts:loadExtraMissionVehicles_configurations(xmlFile, vehicleKey)
+    local index = 0
+    local configurations = {}
+    while true do
+        local configurationKey = string.format("%s.configuration(%d)", vehicleKey, index)
+        if hasXMLProperty(xmlFile, configurationKey) then
+            local name = getXMLString(xmlFile, configurationKey .. "#name") or "missingName"
+            local id = getXMLInt(xmlFile, configurationKey .. "#id") or 1
+            configurations[name] = id
+        else
+            break
+        end
+        index = index + 1
+    end
+    return configurations
+end
+
+function BetterContracts.sortList(pageContracts, super, ...)
+    -- sort by mission type and field number (multiply mission type by a big number to make it the first sorting parameter)
+    table.sort(
+        pageContracts.contracts,
+        function(c1, c2)
+            local c1V = c1.mission.type.typeId * -1000
+            if c1.mission.field ~= nil then
+                c1V = c1V + c1.mission.field.fieldId
+            end
+            if c1.active then
+                c1V = c1V - 100000
+            end
+            if c1.finished then
+                if c1.mission.success then
+                    c1V = c1V - 1000000
+                else
+                    c1V = c1V - 50000
+                end
+            end
+
+            local c2V = c2.mission.type.typeId * -1000
+            if c2.mission.field ~= nil then
+                c2V = c2V + c2.mission.field.fieldId
+            end
+            if c2.active then
+                c2V = c2V - 100000
+            end
+            if c2.finished then
+                if c2.mission.success then
+                    c2V = c2V - 1000000
+                else
+                    c2V = c2V - 50000
+                end
+            end
+
+            return c1V < c2V
+        end
+    )
+end
+
+function BetterContracts:onContractsFrameOpen(superFunc, ...)
+    if BetterContracts.needsRefreshContractsConflictsPrevention then
+        -- this will prevent execution of FS19_RefreshContracts code (because they check for that field to be nil)
+        g_currentMission.inGameMenu.refreshContractsElement_Button = 1
+    end
+    superFunc(self, ...)
+    g_currentMission.inGameMenu.refreshContractsElement_Button = nil
+
+    -- add new buttons
+    if g_currentMission.inGameMenu.newContractsButton == nil then
+        g_currentMission.inGameMenu.newContractsButton = g_currentMission.inGameMenu.menuButton[1]:clone(self)
+        g_currentMission.inGameMenu.newContractsButton.onClickCallback = BetterContracts.onClickNewContractsCallback
+        g_currentMission.inGameMenu.newContractsButton:setText(g_i18n:getText("bc_new_contracts"))
+        g_currentMission.inGameMenu.newContractsButton:setInputAction("MENU_EXTRA_1")
+        g_currentMission.inGameMenu.menuButton[1].parent:addElement(g_currentMission.inGameMenu.newContractsButton)
+    end
+
+    if g_currentMission.inGameMenu.clearContractsButton == nil then
+        g_currentMission.inGameMenu.clearContractsButton = g_currentMission.inGameMenu.menuButton[1]:clone(self)
+        g_currentMission.inGameMenu.clearContractsButton.onClickCallback = BetterContracts.onClickClearContractsCallback
+        g_currentMission.inGameMenu.clearContractsButton:setText(g_i18n:getText("bc_clear_contracts"))
+        g_currentMission.inGameMenu.clearContractsButton:setInputAction("MENU_EXTRA_2")
+        g_currentMission.inGameMenu.menuButton[1].parent:addElement(g_currentMission.inGameMenu.clearContractsButton)
     end
 end
 
 function BetterContracts:onContractsFrameClose()
-    -- remove button for contracts refreshing
-    if g_currentMission.inGameMenu.refreshContractsButton ~= nil then
-        g_currentMission.inGameMenu.refreshContractsButton:unlinkElement()
-        g_currentMission.inGameMenu.refreshContractsButton:delete()
-        g_currentMission.inGameMenu.refreshContractsButton = nil
+    -- remove new button
+    if g_currentMission.inGameMenu.newContractsButton ~= nil then
+        g_currentMission.inGameMenu.newContractsButton:unlinkElement()
+        g_currentMission.inGameMenu.newContractsButton:delete()
+        g_currentMission.inGameMenu.newContractsButton = nil
+    end
+
+    if g_currentMission.inGameMenu.clearContractsButton ~= nil then
+        g_currentMission.inGameMenu.clearContractsButton:unlinkElement()
+        g_currentMission.inGameMenu.clearContractsButton:delete()
+        g_currentMission.inGameMenu.clearContractsButton = nil
     end
 end
 
@@ -175,29 +311,31 @@ function BetterContracts.onClickMenuExtra1(inGameMenu, superFunc, ...)
     if superFunc ~= nil then
         superFunc(inGameMenu, ...)
     end
-    if inGameMenu.refreshContractsButton ~= nil then
-        inGameMenu.refreshContractsButton.onClickCallback(inGameMenu)
+    if inGameMenu.newContractsButton ~= nil then
+        inGameMenu.newContractsButton.onClickCallback(inGameMenu)
     end
 end
 
-function BetterContracts:onClickRefreshCallback()
-    BetterContractsRefreshEvent.sendEvent()
+function BetterContracts.onClickMenuExtra2(inGameMenu, superFunc, ...)
+    if superFunc ~= nil then
+        superFunc(inGameMenu, ...)
+    end
+    if inGameMenu.clearContractsButton ~= nil then
+        inGameMenu.clearContractsButton.onClickCallback(inGameMenu)
+    end
 end
 
--- this should grant to accept multiple contracts
+function BetterContracts.onClickNewContractsCallback(inGameMenu)
+    BetterContractsNewEvent.sendEvent()
+end
+
+function BetterContracts.onClickClearContractsCallback(inGameMenu)
+    BetterContractsClearEvent.sendEvent()
+end
+
+-- this should allow to accept multiple contracts
 function BetterContracts:hasFarmActiveMission()
     return false
-end
-
-function BetterContracts.colorByFarmId(farmId)
-    local farm = g_farmManager:getFarmById(farmId)
-    if farm ~= nil then
-        local color = Farm.COLORS[farm.color]
-        if color ~= nil then
-            return color[1], color[2], color[3], color[4]
-        end
-    end
-    return 1, 1, 1, 1
 end
 
 function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
@@ -254,7 +392,7 @@ function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
 
                 renderText(posX, posY - 1 / g_screenHeight, self.textSize * self.zoom * scale, self.fullViewName)
 
-                local r, g, b, _ = BetterContracts.colorByFarmId(mission.farmId)
+                local r, g, b, _ = unpack(Utility.getFarmColor(mission.farmId))
                 setTextColor(r, g, b, alpha)
 
                 renderText(posX + 1 / g_screenWidth, posY, self.textSize * self.zoom * scale, self.fullViewName)

@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<missionVehicles requiredMod="pdlc_claasPack">
+    <mission type="plow">
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="design" id="1" />
+                <configuration name="wheel" id="3" />
+                <configuration name="motor" id="2" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="frontloader" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/salford/salford4204/salford4204.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="1" />
+            </vehicle>
+        </group>
+
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="16" />
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/agromasz/agromaszPOH5/agromaszPOH5.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="2" />
+            </vehicle>
+        </group>
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="4" />
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/agromasz/agromaszPOH5/agromaszPOH5.xml">
+                <!-- plow -->
+                <configuration name="design" id="2" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="2" />
+            </vehicle>
+        </group>
+
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="5" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/salford/salford8312/salford8312.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/xerion5000/xerion5000.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="2" />
+                <configuration name="wheel" id="7" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/xerion5000/xerion5000.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+                <configuration name="wheel" id="7" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/gregoireBesson/SPSL9/SPSL9.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="5" />
+            </vehicle>
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/xerion5000/xerion5000.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="1" />
+                <configuration name="wheel" id="13" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="2" />
+            </vehicle>
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/xerion5000/xerion5000.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="2" />
+                <configuration name="wheel" id="8" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- plow -->
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="3" />
+            </vehicle>
+        </group>
+    </mission>
+
+    <mission type="cultivate">
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="2" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnCultimerL300/kuhnCultimerL300.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/rau/polymag300/polymag300.xml" /> <!-- cultivator -->
+        </group>
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/agromasz/btc50h/btc50h.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/rabe/MKE300/mke300.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnHR4004/kuhnHR4004.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnHR4004/kuhnHR4004.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+                <configuration name="wheel" id="11" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnHR4004/kuhnHR4004.xml" /> <!-- cultivator -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnDC401/kuhnDC401.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="18" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnHR4004/kuhnHR4004.xml" /> <!-- cultivator -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnDC401/kuhnDC401.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/amazone/cenius80032TXSuper/cenius80032TXSuper.xml" /> <!-- cultivator -->
+        </group>
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/amazone/catros6002/catros6002.xml" /> <!-- cultivator -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/vaderstad/carrierXL825/carrierXL825.xml" /> <!-- cultivator -->
+        </group>
+
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/xerion5000/xerion5000.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="2" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/horsch/cruiser12XL/cruiser12XL.xml" /> <!-- cultivator -->
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/xerion5000/xerion5000.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/flexicoil/st820/st820.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/horsch/joker12RT/joker12RT.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="5" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/heliodor12S/heliodor12S.xml" /> <!-- seeder -->
+        </group>
+    </mission>
+
+    <mission type="sow">
+        <!-- grainMission -->
+        <group fieldSize="small" variant="GRAIN">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/vaderstad/spiritR300S/spiritR300S.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="small" variant="GRAIN">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/amazone/D8_30/D8_30.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="small" variant="GRAIN">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnBTF4000/kuhnBTF4000.xml" /> <!-- seeder -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnTF1500/kuhnTF1500.xml" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="medium" variant="GRAIN">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/agromasz/agromaszSalvis3800/agromaszSalvis3800.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="medium" variant="GRAIN">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/vaderstad/rapid600S/rapid600s.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="medium" variant="GRAIN">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/horsch/pronto9DC/pronto9DC.xml" /> <!-- seeder -->
+        </group>
+
+        <group fieldSize="large" variant="GRAIN">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="5" />
+                <configuration name="wheel" id="10" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/solitair12/solitair12.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="large" variant="GRAIN">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="5" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/amazone/condor15001/condor15001.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <!-- maizeMission -->
+        <group fieldSize="small" variant="MAIZE">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="3" />
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/amazone/amazoneED3000/amazoneED3000.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="small" variant="MAIZE">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/kverneland/optimaV/optimaV.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="medium" variant="MAIZE">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="3" />
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/lemkenAzurit9/lemkenAzurit9.xml" /> <!-- seeder -->
+            <vehicle filename="$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.xml" /> <!-- tank -->
+        </group>
+        <group fieldSize="medium" variant="MAIZE">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/vaderstad/tempoVTPV8/tempoVTPV8.xml" /> <!-- seeder -->
+            <vehicle filename="$data/vehicles/vaderstad/fh2200/fh2200.xml" /> <!-- tank -->
+        </group>
+
+        <group fieldSize="large" variant="MAIZE">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="8" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="large" variant="MAIZE">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/horsch/maestro12SW/maestro12SW.xml" /> <!-- seeder -->
+        </group>
+
+        <!-- sugarBeetMission -->
+        <group fieldSize="small" variant="SUGARBEET">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="3" />
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/amazone/amazoneED3000/amazoneED3000.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="small" variant="SUGARBEET">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true" /> <!-- tractor -->
+            <vehicle filename="$data/vehicles/kverneland/optimaV/optimaV.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="medium" variant="SUGARBEET">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="3" />
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lemken/lemkenAzurit9/lemkenAzurit9.xml" /> <!-- seeder -->
+            <vehicle filename="$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.xml" /> <!-- tank -->
+        </group>
+        <group fieldSize="medium" variant="SUGARBEET">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/vaderstad/tempoVTPV8/tempoVTPV8.xml" /> <!-- seeder -->
+            <vehicle filename="$data/vehicles/vaderstad/fh2200/fh2200.xml" /> <!-- tank -->
+        </group>
+
+        <group fieldSize="large" variant="SUGARBEET">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="8" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- seeder -->
+        </group>
+        <group fieldSize="large" variant="SUGARBEET">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/horsch/maestro12SW/maestro12SW.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <!-- potatoMission -->
+        <group fieldSize="small" variant="POTATO">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="design" id="2" />
+                <configuration name="wheel" id="7" />
+                <configuration name="motor" id="6" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/grimme/GL420/GL420.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="2" />
+            </vehicle>
+        </group>
+        <group fieldSize="small" variant="POTATO">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="7" />
+                <configuration name="motor" id="2" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/grimme/GL420/GL420.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="2" />
+            </vehicle>
+        </group>
+
+        <group fieldSize="medium" variant="POTATO">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="14" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/grimme/GL420/GL420.xml" /> <!-- seeder -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="large" variant="POTATO">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="14" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/grimme/GL860/GL860.xml" /> <!-- seeder -->
+        </group>
+    </mission>
+
+    <mission type="weed">
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="7" />
+                <configuration name="motor" id="2" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/einboeck/rotation1200/rotation1200.xml" /> <!-- weeder -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="7" />
+                <configuration name="motor" id="2" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/einboeck/rotation1200/rotation1200.xml" /> <!-- weeder -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="7" />
+                <configuration name="motor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/treffler/TS1520/TS1520.xml" /> <!-- weeder -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+        </group>
+    </mission>
+
+    <mission type="fertilize">
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/xerion5000/xerion5000.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="1" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="wheel" id="12" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/veenhuis/premiumIntegral30000/premiumIntegral30000.xml">
+                <!-- spreader -->
+                <configuration name="fillUnit" id="1" />
+                <configuration name="wheel" id="1" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="2" />
+            </vehicle>
+        </group>
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="5" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="wheel" id="10" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/torion1914/torion1914.xml" isMod="true">
+                <!-- loader -->
+                <configuration name="motor" id="1" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="wheel" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/strautmann/PS3401/PS3401.xml">
+                <!-- spreader -->
+                <configuration name="wheel" id="1" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="fillVolume" id="1" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/W1800/W1800.xml" isMod="true">
+                <!-- weight -->
+                <configuration name="design" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/lizard/silageFork/lizardSilageFork.xml">
+                <!-- bucket -->
+                <configuration name="fillVolume" id="1" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="baseMaterial" id="37" />
+            </vehicle>
+        </group>
+    </mission>
+
+    <mission type="spray">
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="5" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnDeltis1302/kuhnDeltis1302.xml" /> <!-- spreader -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+        <group fieldSize="small">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="5" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/hardi/mega2200/mega2200.xml" /> <!-- spreader -->
+            <vehicle filename="vehicles/claas/W900/W900.xml" isMod="true" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="medium">
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="5" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnDeltis1302/kuhnDeltis1302.xml" /> <!-- spreader -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnPF1500/kuhnPF1500.xml" /> <!-- weight -->
+        </group>
+
+        <group fieldSize="large">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="wheel" id="7" />
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/hardi/navigator6000/navigator6000.xml" /> <!-- spreader -->
+        </group>
+    </mission>
+
+    <mission type="harvest">
+        <!-- grainMission -->
+        <group fieldSize="medium" variant="GRAIN">
+            <vehicle filename="vehicles/claas/tucano580/tucano580.xml" isMod="true">
+                <!-- combine -->
+                <configuration name="wheel" id="1" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/vario770/vario770.xml" isMod="true" /> <!-- header -->
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="14" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="frontloader" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- trailer -->
+            <vehicle filename="vehicles/claas/vario770Trailer/vario770Trailer.xml" isMod="true" /> <!-- headerTrailer -->
+        </group>
+
+        <group fieldSize="large" variant="GRAIN">
+            <vehicle filename="vehicles/claas/lexion8000/lexion8000.xml" isMod="true">
+                <!-- combine -->
+                <configuration name="fillVolume" id="1" />
+                <configuration name="motor" id="1" />
+                <configuration name="wheel" id="2" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/convio1230/convio1230.xml" isMod="true" /> <!-- header -->
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="wheel" id="15" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kinze/wagon1051/wagon1051.xml">
+                <!-- augerWagon -->
+                <configuration name="cover" id="1" />
+                <configuration name="fillVolume" id="1" />
+                <configuration name="wheel" id="3" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/man/tgs18500/tgs18500.xml">
+                <!-- truck -->
+                <configuration name="attacherJoint" id="1" />
+                <configuration name="motor" id="1" />
+                <configuration name="baseMaterial" id="34" />
+                <configuration name="rimColor" id="36" />
+                <configuration name="wheel" id="2" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml">
+                <!-- trailer -->
+                <configuration name="cover" id="1" />
+                <configuration name="fillVolume" id="1" />
+                <configuration name="trailer" id="1" />
+                <configuration name="wheel" id="3" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/convio1230Trailer/convio1230Trailer.xml" isMod="true" /> <!-- headerTrailer -->
+        </group>
+
+        <!-- maizeMission -->
+        <group fieldSize="small" variant="MAIZE" rewardScale="0.9">
+            <vehicle filename="vehicles/claas/tucano580/tucano580.xml" isMod="true">
+                <!-- combine -->
+                <configuration name="wheel" id="2" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/capello/quasarF4/quasarF4.xml">
+                <!-- header -->
+                <configuration name="baseMaterial" id="34" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/arion400/arion400.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="design" id="1" />
+                <configuration name="wheel" id="3" />
+                <configuration name="motor" id="6" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="frontloader" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/strautmann/SEK802/SEK802.xml">
+                <!-- trailer -->
+                <configuration name="cover" id="1" />
+                <configuration name="fillVolume" id="4" />
+                <configuration name="wheel" id="2" />
+                <configuration name="trailer" id="3" />
+                <configuration name="fillUnit" id="4" />
+                <configuration name="tensionBelts" id="1" />
+            </vehicle>
+        </group>
+
+        <group fieldSize="medium" variant="MAIZE">
+            <vehicle filename="vehicles/claas/tucano580/tucano580.xml" isMod="true">
+                <!-- combine -->
+                <configuration name="wheel" id="3" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/corio875FC/corio875FC.xml" isMod="true" /> <!-- header -->
+            <vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+                <!-- tractor -->
+                <configuration name="wheel" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kroeger/TAW30/TAW30.xml">
+                <!-- trailer -->
+                <configuration name="fillVolume" id="1" />
+                <configuration name="trailer" id="1" />
+                <configuration name="wheel" id="2" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+        </group>
+
+        <group fieldSize="large" variant="MAIZE">
+            <vehicle filename="vehicles/claas/lexion8000/lexion8000.xml" isMod="true">
+                <!-- combine -->
+                <configuration name="fillVolume" id="1" />
+                <configuration name="motor" id="1" />
+                <configuration name="wheel" id="6" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/corio1275C/corio1275C.xml" isMod="true" /> <!-- header -->
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="3" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="wheel" id="15" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kinze/wagon1051/wagon1051.xml">
+                <!-- augerWagon -->
+                <configuration name="cover" id="1" />
+                <configuration name="fillVolume" id="1" />
+                <configuration name="wheel" id="3" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/man/tgs18500/tgs18500.xml">
+                <!-- truck -->
+                <configuration name="attacherJoint" id="1" />
+                <configuration name="motor" id="1" />
+                <configuration name="baseMaterial" id="34" />
+                <configuration name="rimColor" id="36" />
+                <configuration name="wheel" id="2" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml">
+                <!-- trailer -->
+                <configuration name="cover" id="1" />
+                <configuration name="fillVolume" id="1" />
+                <configuration name="trailer" id="1" />
+                <configuration name="wheel" id="3" />
+                <configuration name="fillUnit" id="1" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/corio1275CTrailer/corio1275CTrailer.xml" isMod="true" /> <!-- headerTrailer -->
+        </group>
+    </mission>
+
+    <mission type="mow_bale">
+        <group fieldSize="small" variant="SILAGE">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="8" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/newHolland/newHollandDiscbine313/newHollandDiscbine313.xml" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/disco3600FC/disco3600FC.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnGA9531/kuhnGA9531.xml" /> <!-- windrower -->
+            <vehicle filename="vehicles/claas/rollant455Uniwrap/rollant455Uniwrap.xml" isMod="true">
+                <!-- baler -->
+                <configuration name="wheel" id="2" />
+                <configuration name="wrappingColor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/fliegl/butterfly/butterfly.xml" /> <!-- flatbed -->
+            <vehicle filename="$data/vehicles/fliegl/butterfly/butterfly.xml" /> <!-- flatbed -->
+        </group>
+        <group fieldSize="small" variant="SILAGE">
+            <vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+                <!-- tractor -->
+                <configuration name="motor" id="1" />
+                <configuration name="wheel" id="2" />
+                <configuration name="fillUnit" id="1" />
+                <configuration name="frontloader" id="1" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/kuhn/kuhnGMD4411/kuhnGMD4411.xml" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/disco3600FC/disco3600FC.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnSR314/kuhnSR314.xml" /> <!-- windrower -->
+            <vehicle filename="vehicles/claas/rollant455Uniwrap/rollant455Uniwrap.xml" isMod="true">
+                <!-- baler -->
+                <configuration name="wheel" id="2" />
+                <configuration name="wrappingColor" id="3" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/stepa/FHL13AK/FHL13AK.xml">
+                <!-- flatbed -->
+                <configuration name="design" id="2" />
+                <configuration name="wheel" id="1" />
+                <configuration name="tensionBelts" id="1" />
+            </vehicle>
+        </group>
+
+        <group fieldSize="medium" variant="SILAGE">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="10" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/disco3600FC/disco3600FC.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/disco1100C/disco1100C.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnMergeMaxx902/kuhnMergeMaxx902.xml" /> <!-- windrower -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- baler -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnSW4014/kuhnSW4014.xml" /> <!-- bale wrapper -->
+            <vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- flatbed -->
+        </group>
+
+        <group fieldSize="large" variant="SILAGE">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="2" />
+                <configuration name="wheel" id="13" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/poettinger/poettingerNovaCat301/poettingerNovaCat301.xml" /> <!-- mower -->
+            <vehicle filename="$data/vehicles/poettinger/poettingerNovaCatX8/poettingerNovaCatX8.xml" /> <!-- mower -->
+            <vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- windrower -->
+            <vehicle filename="vehicles/claas/quadrant5300/quadrant5300.xml" isMod="true" /> <!-- baler -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnSW4014/kuhnSW4014.xml" /> <!-- bale wrapper -->
+            <vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- flatbed -->
+        </group>
+
+        <group fieldSize="small" variant="HAY">
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="8" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/newHolland/newHollandDiscbine313/newHollandDiscbine313.xml" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/disco3600FC/disco3600FC.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnSR314/kuhnSR314.xml" /> <!-- windrower -->
+            <vehicle filename="vehicles/claas/rollant455Uniwrap/rollant455Uniwrap.xml" isMod="true" /> <!-- baler -->
+            <vehicle filename="$data/vehicles/vicon/viconFanex604/viconFanex604.xml" /> <!-- tedder -->
+            <vehicle filename="$data/vehicles/fliegl/butterfly/butterfly.xml" /> <!-- flatbed -->
+            <vehicle filename="$data/vehicles/fliegl/butterfly/butterfly.xml" /> <!-- flatbed -->
+        </group>
+
+        <group fieldSize="medium" variant="HAY">
+            <vehicle filename="vehicles/claas/axion800/axion800.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="6" />
+                <configuration name="wheel" id="10" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/disco3600FC/disco3600FC.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/disco1100C/disco1100C.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnMergeMaxx902/kuhnMergeMaxx902.xml" /> <!-- windrower -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- baler -->
+            <vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- tedder -->
+            <vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- flatbed -->
+        </group>
+
+        <group fieldSize="large" variant="HAY">
+            <vehicle filename="vehicles/claas/axion900/axion900.xml" isMod="true">
+                <!-- tractor -->
+                <configuration name="motor" id="4" />
+                <configuration name="wheel" id="13" />
+            </vehicle>
+            <vehicle filename="vehicles/claas/disco3600FC/disco3600FC.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/disco1100C/disco1100C.xml" isMod="true" /> <!-- mower -->
+            <vehicle filename="vehicles/claas/W600/W600.xml" isMod="true" /> <!-- weight -->
+            <vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- windrower -->
+            <vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- baler -->
+            <vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- tedder -->
+            <vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- flatbed -->
+        </group>
+    </mission>
+</missionVehicles>

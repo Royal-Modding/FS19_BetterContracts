@@ -10,39 +10,52 @@
 			<![CDATA[
 This mod helps to improve the contract system, both in singleplayer and multyplayer.
 
-- The maximum number and the amount of mission generated has been increased to meet those who play on maps with many fields.
+- The maximum number and the amount of mission generated is now automatically adjusted to number of fields in map.
  
-- You can now force the generation of new missions through the "Refresh" button on contract management screen.
+- You can now generate new missions through the "New Contracts" button and even clear them all on contracts management screen.
+
+- Contracts are now sorted by type and field number to make it easier to find the one you desire.
  
 - You can activate more than one contract at a time.
  
 - The field-number indicator (on the mini-map) of the fields on which you will activate contracts, will start blinking to help you figure it out where you have to go.
+
+Changelog ${version}:
+- Added conflicts prevention with other mods
+- Added contracts list sorting
+- Improved contracts management
 ]]>
 		</en>
 		<de>
 			<![CDATA[
 Dieser Mod hilft das Vertragssystem zu verbessern, sowohl im Einzelspieler und Multiplayer.
 
-- Die maximale Anzahl und die Menge der generierten Missionen wurde erhöht, um denjenigen entgegenzukommen, die auf Karten mit vielen Feldern spielen.
+- Die maximale Anzahl und die Anzahl der generierten Missionen werden jetzt automatisch an die Anzahl der Felder in der Karte angepasst.
  
-- Sie können jetzt die Generierung neuer Missionen über die Schaltfläche "Aktualisieren" auf dem Bildschirm für die Vertragsverwaltung erzwingen.
+- Sie können jetzt neue Missionen über die Schaltfläche "Aktualisieren" auf dem Vertragsverwaltungsbildschirm generieren.
  
 - Sie können mehr als einen Vertrag gleichzeitig aktivieren.
  
 - Die Feldnummernanzeige (auf der Minikarte) der Felder, auf denen Sie Verträge aktivieren, beginnt zu blinken, um Ihnen den richtigen Weg zu zeigen.
+
+Changelog ${version}:
+
 ]]>
 		</de>
 		<fr>
 			<![CDATA[
 Ce mod aide à améliorer le système de contrat, à la fois en solo et multyplayer.
 
-- Le nombre maximal et la quantité de mission générée a été augmenté pour rencontrer ceux qui jouent sur des cartes avec de nombreux champs.
+- Le nombre maximum et la quantité de missions générées sont désormais automatiquement ajustés au nombre de champs de la carte.
  
-- Vous pouvez maintenant forcer la génération de nouvelles missions à travers le bouton « resho » sur l’écran de gestion des contrats.
+- Vous pouvez désormais générer de nouvelles missions via le bouton "Actualiser" sur l'écran de gestion des contrats.
  
 - Vous pouvez activer plus d’un contrat à la fois.
  
 - L’indicateur de numéro de champ (sur la mini-carte) des champs sur lesquels vous activerez les contrats, commencera à clignoter pour vous aider à comprendre où vous devez aller.
+
+Changelog ${version}:
+
 ]]>
 		</fr>
 	</description>
@@ -51,16 +64,23 @@ Ce mod aide à améliorer le système de contrat, à la fois en solo et multypla
 	<extraSourceFiles>
 		<sourceFile filename="lib/utility/Main.lua" />
 		<sourceFile filename="lib/rmod/Main.lua" />
-		<sourceFile filename="betterContractsRefreshEvent.lua" />
+		<sourceFile filename="betterContractsNewEvent.lua" />
+		<sourceFile filename="betterContractsClearEvent.lua" />
 		<sourceFile filename="betterContracts.lua" />
+		<sourceFile filename="missionManagerFix.lua" />
 	</extraSourceFiles>
 	<l10n>
-		<text name="refresh_contracts">
-			<en>Refresh Contracts</en>
-			<it>Aggiorna Contratti</it>
-			<de>Verträge aktualisieren</de>
-			<fr>Actualiser les contrats</fr>
-			<pl>Odśwież kontrakty</pl>
+		<text name="bc_new_contracts">
+			<en>New Contracts</en>
+			<it>Nuovi Contratti</it>
+			<de>Neue Verträge</de>
+			<fr>Nouveaux Contrats</fr>
+		</text>
+		<text name="bc_clear_contracts">
+			<en>Clear Contracts</en>
+			<it>Pulisci lista</it>
+			<de>Klare Verträge</de>
+			<fr>Clairs Contrats</fr>
 		</text>
 	</l10n>
 </modDesc>
