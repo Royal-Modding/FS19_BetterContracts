@@ -23,6 +23,7 @@ This mod helps to improve the contract system, both in singleplayer and multypla
 Changelog ${version}:
 - Added conflicts prevention with other mods
 - Added contracts list sorting
+- Added many new vehicle combos for contracts
 - Improved contracts management
 ]]>
 		</en>
@@ -32,14 +33,19 @@ Dieser Mod hilft das Vertragssystem zu verbessern, sowohl im Einzelspieler und M
 
 - Die maximale Anzahl und die Anzahl der generierten Missionen werden jetzt automatisch an die Anzahl der Felder in der Karte angepasst.
  
-- Sie können jetzt neue Missionen über die Schaltfläche "Aktualisieren" auf dem Vertragsverwaltungsbildschirm generieren.
+- Sie können jetzt über die Schaltfläche "Neue Verträge" neue Missionen generieren und diese sogar alle auf dem Vertragsverwaltungsbildschirm löschen.
+
+- Verträge werden jetzt nach Typ und Feldnummer sortiert, um das Auffinden des gewünschten Vertrags zu erleichtern.
  
 - Sie können mehr als einen Vertrag gleichzeitig aktivieren.
  
 - Die Feldnummernanzeige (auf der Minikarte) der Felder, auf denen Sie Verträge aktivieren, beginnt zu blinken, um Ihnen den richtigen Weg zu zeigen.
 
 Changelog ${version}:
-
+- Konfliktverhütung mit anderen Mods hinzugefügt
+- Sortierung der Vertragslisten hinzugefügt
+- Es wurden viele neue Fahrzeugkombinationen für Verträge hinzugefügt
+- Verbessertes Vertragsmanagement
 ]]>
 		</de>
 		<fr>
@@ -48,14 +54,19 @@ Ce mod aide à améliorer le système de contrat, à la fois en solo et multypla
 
 - Le nombre maximum et la quantité de missions générées sont désormais automatiquement ajustés au nombre de champs de la carte.
  
-- Vous pouvez désormais générer de nouvelles missions via le bouton "Actualiser" sur l'écran de gestion des contrats.
+- Vous pouvez désormais générer de nouvelles missions via le bouton "Nouveaux contrats" et même les effacer toutes sur l'écran de gestion des contrats.
+
+- Les contrats sont désormais triés par type et numéro de champ pour vous permettre de trouver plus facilement celui que vous désirez.
  
-- Vous pouvez activer plus d’un contrat à la fois.
+- Vous pouvez activer plusieurs contrats à la fois.
  
-- L’indicateur de numéro de champ (sur la mini-carte) des champs sur lesquels vous activerez les contrats, commencera à clignoter pour vous aider à comprendre où vous devez aller.
+- L'indicateur de numéro de champ (sur la mini-carte) des champs sur lesquels vous allez activer les contrats, commencera à clignoter pour vous aider à déterminer où vous devez aller.
 
 Changelog ${version}:
-
+- Ajout de la prévention des conflits avec d'autres mods
+- Ajout du tri de la liste des contrats
+- Ajout de nombreux nouveaux combos de véhicules pour les contrats
+- Amélioration de la gestion des contrats
 ]]>
 		</fr>
 	</description>
