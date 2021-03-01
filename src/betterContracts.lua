@@ -25,13 +25,23 @@ function BetterContracts:initialize()
     if not self.needsMoreMissionsAllowedConflictsPrevention then
         Utility.overwrittenFunction(MissionManager, "hasFarmActiveMission", BetterContracts.hasFarmActiveMission)
     end
+    Utility.overwrittenFunction(MissionManager, "loadMissionVehicles", BetterContracts.loadMissionVehicles)
 
     Utility.overwrittenFunction(InGameMenuContractsFrame, "sortList", BetterContracts.sortList)
 
     Utility.overwrittenFunction(InGameMenuContractsFrame, "onFrameOpen", BetterContracts.onContractsFrameOpen)
     Utility.appendedFunction(InGameMenuContractsFrame, "onFrameClose", BetterContracts.onContractsFrameClose)
+end
 
-    DebugUtil.printTableRecursively(g_modNameToDirectory)
+function BetterContracts.loadMissionVehicles(missionManager, superFunc, ...)
+    local self = BetterContracts
+    if superFunc(missionManager, ...) then
+        self:loadExtraMissionVehicles(self.directory .. "missionVehicles/baseGame.xml")
+        self:loadExtraMissionVehicles(self.directory .. "missionVehicles/claasPack.xml")
+        return true
+    end
+
+    return false
 end
 
 function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)
@@ -42,18 +52,6 @@ end
 function BetterContracts:onSetMissionInfo(missionInfo, missionDynamicInfo)
     Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra1", BetterContracts.onClickMenuExtra1)
     Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra2", BetterContracts.onClickMenuExtra2)
-end
-
-function BetterContracts:onLoad()
-end
-
-function BetterContracts:onPreLoadMap(mapFile)
-end
-
-function BetterContracts:onCreateStartPoint(startPointNode)
-end
-
-function BetterContracts:onLoadMap(mapNode, mapFile)
 end
 
 function BetterContracts:onPostLoadMap(mapNode, mapFile)
@@ -71,33 +69,6 @@ function BetterContracts:onPostLoadMap(mapNode, mapFile)
     g_logManager:devInfo("[%s] MAX_TRIES_PER_GENERATION set to %s", self.name, MissionManager.MAX_TRIES_PER_GENERATION)
 end
 
-function BetterContracts:onLoadSavegame(savegameDirectory, savegameIndex)
-end
-
-function BetterContracts:onPreLoadVehicles(xmlFile, resetVehicles)
-end
-
-function BetterContracts:onPreLoadItems(xmlFile)
-    if g_server ~= nil then
-        self:onLoadExtraMissionVehicles()
-    end
-end
-
-function BetterContracts:onPreLoadOnCreateLoadedObjects(xmlFile)
-end
-
-function BetterContracts:onLoadFinished()
-end
-
-function BetterContracts:onStartMission()
-    if g_server == nil then
-        self:onLoadExtraMissionVehicles()
-    end
-end
-
-function BetterContracts:onMissionStarted()
-end
-
 function BetterContracts:onUpdate(dt)
     self.fieldToMissionUpdateTimer = self.fieldToMissionUpdateTimer + dt
     if self.fieldToMissionUpdateTimer >= self.fieldToMissionUpdateTimeout then
@@ -109,30 +80,6 @@ function BetterContracts:onUpdate(dt)
         end
         self.fieldToMissionUpdateTimer = 0
     end
-end
-
-function BetterContracts:onDraw()
-end
-
-function BetterContracts:onPreSaveSavegame(savegameDirectory, savegameIndex)
-end
-
-function BetterContracts:onPostSaveSavegame(savegameDirectory, savegameIndex)
-end
-
-function BetterContracts:onPreDeleteMap()
-end
-
-function BetterContracts:onDeleteMap()
-end
-
-function BetterContracts:onLoadHelpLine()
-    --return self.directory .. "gui/helpLine.xml"
-end
-
-function BetterContracts:onLoadExtraMissionVehicles()
-    self:loadExtraMissionVehicles(self.directory .. "missionVehicles/baseGame.xml")
-    self:loadExtraMissionVehicles(self.directory .. "missionVehicles/claasPack.xml")
 end
 
 function BetterContracts:loadExtraMissionVehicles(xmlFilename)
@@ -293,7 +240,7 @@ function BetterContracts:onContractsFrameOpen(superFunc, ...)
 end
 
 function BetterContracts:onContractsFrameClose()
-    -- remove new button
+    -- remove new buttons
     if g_currentMission.inGameMenu.newContractsButton ~= nil then
         g_currentMission.inGameMenu.newContractsButton:unlinkElement()
         g_currentMission.inGameMenu.newContractsButton:delete()
