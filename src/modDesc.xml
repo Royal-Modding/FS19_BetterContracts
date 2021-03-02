@@ -86,12 +86,14 @@ Changelog ${version}:
 			<it>Nuovi Contratti</it>
 			<de>Neue Verträge</de>
 			<fr>Nouveaux Contrats</fr>
+			<pl>Nowe kontrakty</pl>
 		</text>
 		<text name="bc_clear_contracts">
 			<en>Clear Contracts</en>
 			<it>Pulisci lista</it>
 			<de>Klare Verträge</de>
 			<fr>Clairs Contrats</fr>
+			<pl>Wyczyść kontrakty</pl>
 		</text>
 	</l10n>
 </modDesc>
