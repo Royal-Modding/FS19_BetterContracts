@@ -4,6 +4,7 @@
 	<version>${version}</version>
 	<title>
 		<en>Better Contracts</en>
+		<fr>Gestion des contrats</fr>
 	</title>
 	<description>
 		<en>
@@ -50,11 +51,11 @@ Changelog ${version}:
 		</de>
 		<fr>
 			<![CDATA[
-Ce mod aide à améliorer le système de contrat, à la fois en solo et multyplayer.
+Ce mod permet d'améliorer le système de contrat, à la fois en solo et multijoueur.
 
-- Le nombre maximum et la quantité de missions générées sont désormais automatiquement ajustés au nombre de champs de la carte.
+- Le nombre maximum et la quantité de contrat générés sont désormais automatiquement ajustés au nombre de champs de la carte.
  
-- Vous pouvez désormais générer de nouvelles missions via le bouton "Nouveaux contrats" et même les effacer toutes sur l'écran de gestion des contrats.
+- Vous pouvez désormais générer de nouveaux contrats via le bouton "Nouveaux contrats" et même effacer ceux que vous n'avez pas activé depuis l'écran de gestion des contrats.
 
 - Les contrats sont désormais triés par type et numéro de champ pour vous permettre de trouver plus facilement celui que vous désirez.
  
@@ -85,14 +86,14 @@ Changelog ${version}:
 			<en>New Contracts</en>
 			<it>Nuovi Contratti</it>
 			<de>Neue Verträge</de>
-			<fr>Nouveaux Contrats</fr>
+			<fr>Nouveaux contrats</fr>
 			<pl>Nowe kontrakty</pl>
 		</text>
 		<text name="bc_clear_contracts">
 			<en>Clear Contracts</en>
 			<it>Pulisci lista</it>
 			<de>Klare Verträge</de>
-			<fr>Clairs Contrats</fr>
+			<fr>Supprimer les contrats non choisis</fr>
 			<pl>Wyczyść kontrakty</pl>
 		</text>
 	</l10n>
