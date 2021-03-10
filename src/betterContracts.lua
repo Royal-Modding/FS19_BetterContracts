@@ -56,11 +56,11 @@ end
 
 function BetterContracts:onPostLoadMap(mapNode, mapFile)
     local fieldsAmount = TableUtility.count(g_fieldManager.fields)
-    local adjustedFieldsAmount = math.max(fieldsAmount, 40)
-    MissionManager.MAX_MISSIONS = math.min(100, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 40 fields) max 100
-    MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 20), 2) -- max transport missions is 1/20 of maximum missions but not less then 2
+    local adjustedFieldsAmount = math.max(fieldsAmount, 45)
+    MissionManager.MAX_MISSIONS = math.min(120, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 45 fields) max 120
+    MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 15), 2) -- max transport missions is 1/15 of maximum missions but not less then 2
     MissionManager.MAX_MISSIONS = MissionManager.MAX_MISSIONS + MissionManager.MAX_TRANSPORT_MISSIONS -- add max transport missions to max missions
-    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS / 10, 20) -- max missions per generation = max mission / 10 but not more then 20
+    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS / 5, 30) -- max missions per generation = max mission / 5 but not more then 30
     MissionManager.MAX_TRIES_PER_GENERATION = math.ceil(MissionManager.MAX_MISSIONS_PER_GENERATION * 1.5) -- max tries per generation 50% more then max missions per generation
     g_logManager:devInfo("[%s] Fields amount %s (%s)", self.name, fieldsAmount, adjustedFieldsAmount)
     g_logManager:devInfo("[%s] MAX_MISSIONS set to %s", self.name, MissionManager.MAX_MISSIONS)
