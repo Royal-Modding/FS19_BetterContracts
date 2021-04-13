@@ -33,15 +33,34 @@ function BetterContracts:initialize()
     Utility.appendedFunction(InGameMenuContractsFrame, "onFrameClose", BetterContracts.onContractsFrameClose)
 end
 
+---@param missionManager MissionManager
+---@param superFunc function
+---@return boolean
 function BetterContracts.loadMissionVehicles(missionManager, superFunc, ...)
     local self = BetterContracts
     if superFunc(missionManager, ...) then
-        self:loadExtraMissionVehicles(self.directory .. "missionVehicles/baseGame.xml")
-        self:loadExtraMissionVehicles(self.directory .. "missionVehicles/claasPack.xml")
+        if g_modIsLoaded["FS19_ThueringerHoehe_BG_Edition"] then
+            g_logManager:devInfo("[%s] %s map detected, loading mission vehicles created by %s", self.name, "FS19_ThueringerHoehe", "Lahmi")
+            missionManager.missionVehicles = {}
+            self:loadExtraMissionVehicles(self.directory .. "missionVehicles/FS19_ThueringerHoehe/baseGame.xml")
+            self:loadExtraMissionVehicles(self.directory .. "missionVehicles/FS19_ThueringerHoehe/claasPack.xml")
+        else
+            self:loadExtraMissionVehicles(self.directory .. "missionVehicles/baseGame.xml")
+            self:loadExtraMissionVehicles(self.directory .. "missionVehicles/claasPack.xml")
+        end
         return true
     end
 
     return false
+end
+
+function ConfigurationManager:getConfigurationAttribute(configurationName, attribute)
+    local config = self:getConfigurationDescByName(configurationName)
+    if config == nil then
+        g_logManager:devError("getConfigurationAttribute(configurationName: %s, attribute: %s)", configurationName, attribute)
+        printCallstack()
+    end
+    return config[attribute]
 end
 
 function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)

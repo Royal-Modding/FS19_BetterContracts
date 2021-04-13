@@ -1,0 +1,2443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<missionVehicles>
+	<!-- Pflug Mission -->
+	<mission type="plow">
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="vehicles/Subsoiler_6M/Liborto.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/suer/SB1600/SB1600.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/suer/SB1600/SB1600.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/suer/SB1600/SB1600.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/titan11/titan11.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/suer/SB1600/SB1600.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/caseIH/magnum/magnum.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="8" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/salford/salford8312/salford8312.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/newHolland/T8/T8.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/gregoireBesson/SPSL9/SPSL9.xml" /> <!-- Pflug -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/caseIH/quadtrac/quadtrac.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/challenger/mt800/mt800.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="design" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/gregoireBesson/SPSL9/SPSL9.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/gregoireBesson/SPSL9/SPSL9.xml" /> <!-- Pflug -->
+			<vehicle filename="$data/vehicles/gregoireBesson/SPSL9/SPSL9.xml" /> <!-- Pflug -->
+		</group>
+	</mission>
+	<!-- Getreide sähen -->
+	<mission type="sow">
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/caseIH/magnum7240Pro/magnum7240Pro.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="13" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agromasz/agromaszSalvis3800/agromaszSalvis3800.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/stara/stMax150/stMax150.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stara/ceresMaster3570/ceresMaster3570.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/rapid600S/rapid600s.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/horsch/pronto9DC/pronto9DC.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/horsch/pronto9DC/pronto9DC.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/horsch/pronto9DC/pronto9DC.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/steyr/terrusCVT/terrusCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/solitair12/solitair12.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stara/estrela32/estrela32.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/caseIH/optum/optum.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/amazone/condor15001/condor15001.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight1100/weight1100.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/greatPlains/yp2425A/yp2425A.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/fendt/mt900/mt900.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/hatzenbichler/terminator18/terminator18.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/hatzenbichler/th1400/th1400.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/caseIH/quadtrac/quadtrac.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/seedHawk/xlAirDrill84/xlAirDrill84.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/seedHawk/980AirCart/980AirCart.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/greatPlains/yp2425A/yp2425A.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/greatPlains/yp2425A/yp2425A.xml" /> <!-- Sämaschine -->
+		</group>
+		<!-- Mais sähen -->
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/caseIH/puma/puma.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/lemkenAzurit9/lemkenAzurit9.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoVTPV8/tempoVTPV8.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/vaderstad/fh2200/fh2200.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoVTPV8/tempoVTPV8.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/vaderstad/fh2200/fh2200.xml" /> <!-- Tank -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoVTPV8/tempoVTPV8.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/vaderstad/fh2200/fh2200.xml" /> <!-- Tank -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoVTPV8/tempoVTPV8.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/vaderstad/fh2200/fh2200.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/deutz/series9/series9.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="motor" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="designMaterial" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/steyr/terrusCVT/terrusCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/horsch/maestro12SW/maestro12SW.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/deutz/series9/series9.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="designMaterial" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/deutz/series9/series9.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="designMaterial" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- Sämaschine -->
+		</group>
+		<!-- Zuckerrüben sähen -->
+		<group fieldSize="medium" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/caseIH/puma/puma.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/lemkenAzurit9/lemkenAzurit9.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="medium" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoVTPV8/tempoVTPV8.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/vaderstad/fh2200/fh2200.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="medium" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/caseIH/puma/puma.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/lemkenAzurit9/lemkenAzurit9.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.xml" /> <!-- Tank -->
+			<vehicle filename="$data/vehicles/caseIH/puma/puma.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/lemkenAzurit9/lemkenAzurit9.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.xml" /> <!-- Tank -->
+			<vehicle filename="$data/vehicles/caseIH/puma/puma.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/lemkenAzurit9/lemkenAzurit9.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/lemken/lemkenSolitair23/lemkenSolitair23.xml" /> <!-- Tank -->
+		</group>
+		<group fieldSize="large" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/deutz/series9/series9.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="motor" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="designMaterial" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/steyr/terrusCVT/terrusCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="large" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/steyr/terrusCVT/terrusCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/steyr/terrusCVT/terrusCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/tempoL16/tempoL16.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+		</group>
+		<!-- Kartoffeln legen -->
+		<group fieldSize="medium" variant="POTATO">
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/GL420/GL420.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium" variant="POTATO">
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/GL860/GL860.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="medium" variant="POTATO">
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/GL420/GL420.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/GL420/GL420.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/GL420/GL420.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="large" variant="POTATO">
+			<vehicle filename="$data/vehicles/caseIH/optum/optum.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/GL860/GL860.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large" variant="POTATO">
+			<vehicle filename="$data/vehicles/steyr/terrusCVT/terrusCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/GL860/GL860.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/grimme/GL860/GL860.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/grimme/GL860/GL860.xml" /> <!-- Sämaschine -->
+		</group>
+	</mission>
+	<!-- Striegeln -->
+	<mission type="weed">
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/lindner/lintrac90/lintrac90.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/einboeck/rotation1200/rotation1200.xml" /> <!-- Wiesenstriegel -->
+			<vehicle filename="$data/vehicles/suer/SB700/SB700.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/fiat/fiat1300dt/fiat1300dt.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/einboeck/rotation1200/rotation1200.xml" /> <!-- Wiesenstriegel -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/lindner/lintrac90/lintrac90.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/einboeck/rotation1200/rotation1200.xml" /> <!-- Wiesenstriegel -->
+			<vehicle filename="$data/vehicles/suer/SB700/SB700.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/fiat/fiat1300dt/fiat1300dt.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/einboeck/rotation1200/rotation1200.xml" /> <!-- Wiesenstriegel -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/treffler/TS1520/TS1520.xml" /> <!-- Wiesenstriegel -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="5" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/treffler/TS1520/TS1520.xml" /> <!-- Wiesenstriegel -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="5" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/treffler/TS1520/TS1520.xml" /> <!-- Wiesenstriegel -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/treffler/TS1520/TS1520.xml" /> <!-- Wiesenstriegel -->
+		</group>
+	</mission>
+	<!-- Dünger streuen -->
+	<mission type="fertilize">
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bredal/K105/k105.xml">
+				<!-- Feldspritze -->
+				<configuration name="folding" id="1" />
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="cover" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight1100/weight1100.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/caseIH/puma/puma.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bredal/K105/k105.xml">
+				<!-- Feldspritze -->
+				<configuration name="folding" id="1" />
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="cover" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight1100/weight1100.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/valtra/NSeries/NSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kuhn/kuhnDeltis1302/kuhnDeltis1302.xml" /> <!-- Feldspritze -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnPF1500/kuhnPF1500.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="1" />
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kuhn/kuhnMetris4102/kuhnMetris4102.xml" /> <!-- Feldspritze -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/stara/imperador3/imperador3.xml">
+				<!-- Schlepper -->
+				<configuration name="cover" id="1" />
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/hardi/rubicon9000/rubicon9000.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/hardi/navigator6000/navigator6000.xml" /> <!-- Feldspritze -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/caseIH/puma/puma.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bredal/K165/K165.xml">
+				<!-- Feldspritze -->
+				<configuration name="folding" id="2" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight1100/weight1100.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bredal/K165/K165.xml">
+				<!-- Feldspritze -->
+				<configuration name="folding" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight1100/weight1100.xml" /> <!-- Gewicht -->
+		</group>
+		<!-- Gülle ausbringen -->
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/joskin/modulo/modulo.xml">
+				<!-- Güllefass -->
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="folding" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/suer/SB1600/SB1600.xml">
+				<!-- Gewicht -->
+				<configuration name="baseMaterial" id="8" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/man/tgs18500/tgs18500.xml">
+				<!-- LKW -->
+				<configuration name="motor" id="1" />
+				<configuration name="baseMaterial" id="9" />
+				<configuration name="rimColor" id="9" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="attacherJoint" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- LKW -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="wheel" id="1" />
+				<configuration name="motor" id="1" />
+				<configuration name="baseMaterial" id="10" />
+				<configuration name="rimColor" id="9" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kotte/tsa/tsa.xml">
+				<!-- Zubringerfass -->
+				<configuration name="wheel" id="2" />
+				<configuration name="design" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="baseMaterial" id="9" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kotte/tsa/tsa.xml">
+				<!-- Zubringerfass -->
+				<configuration name="wheel" id="2" />
+				<configuration name="design" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="baseMaterial" id="9" />
+			</vehicle>
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/veenhuis/premiumIntegral30000/premiumIntegral30000.xml">
+				<!-- Güllefass -->
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kotte/frc/frc.xml">
+				<!-- Feldrandcontainer -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="baseMaterial" id="9" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/suer/SB1600/SB1600.xml">
+				<!-- Gewicht -->
+				<configuration name="baseMaterial" id="8" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/man/tgs18500/tgs18500.xml">
+				<!-- LKW -->
+				<configuration name="motor" id="1" />
+				<configuration name="baseMaterial" id="9" />
+				<configuration name="rimColor" id="9" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="attacherJoint" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- LKW -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="wheel" id="1" />
+				<configuration name="motor" id="1" />
+				<configuration name="baseMaterial" id="10" />
+				<configuration name="rimColor" id="9" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- LKW -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="wheel" id="1" />
+				<configuration name="motor" id="1" />
+				<configuration name="baseMaterial" id="10" />
+				<configuration name="rimColor" id="9" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kotte/tsa/tsa.xml">
+				<!-- Zubringerfass -->
+				<configuration name="wheel" id="2" />
+				<configuration name="design" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="baseMaterial" id="9" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kotte/tsa/tsa.xml">
+				<!-- Zubringerfass -->
+				<configuration name="wheel" id="2" />
+				<configuration name="design" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="baseMaterial" id="9" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kotte/tsa/tsa.xml">
+				<!-- Zubringerfass -->
+				<configuration name="wheel" id="2" />
+				<configuration name="design" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="baseMaterial" id="9" />
+			</vehicle>
+		</group>
+		<!-- Mist ausbringen -->
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/caseIH/magnum7240Pro/magnum7240Pro.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="13" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/samsonAgro/flex2023/flex2023.xml">
+				<!-- Miststreuer -->
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="fillVolume" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/samsonAgro/flex2023/flex2023.xml">
+				<!-- Miststreuer -->
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="fillVolume" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/samsonAgro/flex2023/flex2023.xml">
+				<!-- Miststreuer -->
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="fillVolume" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/fendt/fendt900/fendt900.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/strautmann/PS3401/PS3401.xml">
+				<!-- Miststreuer -->
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="fillVolume" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolManureFork/stollToolManureFork.xml">
+				<!-- Mistgabel -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="fillVolume" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/strautmann/PS3401/PS3401.xml">
+				<!-- Miststreuer -->
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="fillVolume" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/strautmann/PS3401/PS3401.xml">
+				<!-- Miststreuer -->
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="fillVolume" id="1" />
+			</vehicle>
+		</group>
+	</mission>
+	<!-- Feldspritzen -->
+	<mission type="spray">
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="1" />
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kuhn/kuhnMetris4102/kuhnMetris4102.xml" /> <!-- Feldspritze -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/stara/imperador3/imperador3.xml">
+				<!-- Feldspritze -->
+				<configuration name="cover" id="1" />
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/hardi/rubicon9000/rubicon9000.xml">
+				<!-- Feldspritze -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/hardi/navigator6000/navigator6000.xml" /> <!-- Feldspritze -->
+		</group>
+	</mission>
+	<!-- Grubbern -->
+	<mission type="cultivate">
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/steyr/terrusCVT/terrusCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/horsch/tiger6DT/tiger6DT.xml" /> <!-- Grubber -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/fendt/mt1100/mt1100.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="1" />
+				<configuration name="motor" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="design" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bednar/terraland/terraland.xml" /> <!-- Grubber -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/caseIH/magnum/magnum.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="8" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/amazone/cenius80032TXSuper/cenius80032TXSuper.xml" /> <!-- Grubber -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/amazone/catros6002/catros6002.xml" /> <!-- Grubber -->
+			<vehicle filename="$data/vehicles/agco/weight1100/weight1100.xml" /> <!-- Gewicht -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/valtra/SSeries/SSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="8" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/carrierXL825/carrierXL825.xml" /> <!-- Grubber -->
+		</group>
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/valtra/SSeries/SSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="8" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/carrierXL825/carrierXL825.xml" /> <!-- Grubber -->
+			<vehicle filename="$data/vehicles/valtra/SSeries/SSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="8" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/vaderstad/carrierXL825/carrierXL825.xml" /> <!-- Grubber -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/newHolland/T8/T8.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/horsch/cruiser12XL/cruiser12XL.xml" /> <!-- Grubber -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bednar/sm18/sm18.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/caseIH/quadtrac/quadtrac.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/flexicoil/st820/st820.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/fendt/fendt900/fendt900.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/horsch/joker12RT/joker12RT.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/heliodor12S/heliodor12S.xml" /> <!-- Sämaschine -->
+		</group>
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/heliodor12S/heliodor12S.xml" /> <!-- Sämaschine -->
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lemken/heliodor12S/heliodor12S.xml" /> <!-- Sämaschine -->
+		</group>
+	</mission>
+	<!-- Silageballen pressen -->
+	<mission type="mow_bale">
+		<group fieldSize="medium" variant="SILAGE">
+			<vehicle filename="$data/vehicles/valtra/SSeries/SSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="8" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCat301/poettingerNovaCat301.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCatX8/poettingerNovaCatX8.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnMergeMaxx902/kuhnMergeMaxx902.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnSW4014/kuhnSW4014.xml" /> <!-- Ballenwickler -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="medium" variant="SILAGE">
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/valtra/SSeries/SSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="8" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCat301/poettingerNovaCat301.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCatX8/poettingerNovaCatX8.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnMergeMaxx902/kuhnMergeMaxx902.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnSW4014/kuhnSW4014.xml" /> <!-- Ballenwickler -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="SILAGE">
+			<vehicle filename="$data/vehicles/deutz/series9/series9.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="motor" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="designMaterial" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCat301/poettingerNovaCat301.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCatX8/poettingerNovaCatX8.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnSW4014/kuhnSW4014.xml" /> <!-- Ballenwickler -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="SILAGE">
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/deutz/series9/series9.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="motor" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="designMaterial" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnSW4014/kuhnSW4014.xml" /> <!-- Ballenwickler -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="SILAGE">
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/T8/T8.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnSW4014/kuhnSW4014.xml" /> <!-- Ballenwickler -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<!-- ballen pressen -->
+		<group fieldSize="medium" variant="HAY">
+			<vehicle filename="$data/vehicles/valtra/NSeries/NSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCatX8/poettingerNovaCatX8.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCat301/poettingerNovaCat301.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnMergeMaxx902/kuhnMergeMaxx902.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- Heuwender -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="HAY">
+			<vehicle filename="$data/vehicles/fendt/fendt900/fendt900.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCatX8/poettingerNovaCatX8.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerNovaCat301/poettingerNovaCat301.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- Heuwender -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="HAY">
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/T8/T8.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/weight650/weight650.xml" /> <!-- Gewicht -->
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- Heuwender -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="HAY">
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/643R/643R.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- Heuwender -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="HAY">
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/643R/643R.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- Heuwender -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+		<group fieldSize="large" variant="HAY">
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/bigM450/bigM450.xml">
+				<!-- Mähwerke -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/643R/643R.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- Frontlader -->
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lely/hibiscus1515CdProf/hibiscus1515CdProf.xml" /> <!-- Mähwerke -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/poettinger/poettingerHit1214T/poettingerHit1214T.xml" /> <!-- Heuwender -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Ballenanhänger -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenanhänger -->
+		</group>
+	</mission>
+	<!-- Getreide dreschen  -->
+	<mission type="harvest">
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/masseyFerguson/activa7347/activa7347.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/masseyFerguson/freeflow/freeflow.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan/leguan.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/rostselmash/161/161.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/rostselmash/rsmDS900/rsmDS900.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/stara/stMax150/stMax150.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/johnDeere/T560/T560.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="6" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/625X/625X.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan/leguan.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/johnDeere/T560/T560.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="6" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/625X/625X.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan/leguan.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/johnDeere/T560/T560.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="6" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/625X/625X.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan/leguan.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/rollBelt150/rollBelt150.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/valtra/NSeries/NSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kinze/wagon1051/wagon1051.xml">
+				<!-- Anhänger -->
+				<configuration name="wheel" id="2" />
+			</vehicle>
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/agco/ideal9/IDEAL9.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/agco/dynaFlex9255/dynaFlex9255.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/fendt/fendt900/fendt900.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/masseyFerguson/MF7700/MF7700.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kinze/wagon1051/wagon1051.xml">
+				<!-- Anhänger -->
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/superflexDraper45ft/superflexDraper45ft.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/newHolland/superflexDraper45ft/superflexDraper45ft.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/KS950/KS950.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- frontlader -->
+		</group>
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/elmersMfg/haulMaster/haulMaster.xml">
+				<!-- Anhänger -->
+				<configuration name="fillUnit" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/caseIH/axial9240/axial9240.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/caseIH/draper3162/draper3162.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/newHolland/superflexDraper45ft/superflexDraper45ft.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/caseIH/quadtrac/quadtrac.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/superflexDraper45ft/superflexDraper45ft.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/KS950/KS950.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kuhn/kuhnLSB1290D/kuhnLSB1290D.xml" /> <!-- Ballenpresse -->
+			<vehicle filename="$data/vehicles/arcusin/arcusinFSX6372/arcusinFSX6372.xml" /> <!-- Ballenladewagen -->
+			<vehicle filename="$data/vehicles/fliegl/flieglDPW210/flieglDPW210.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/valtra/NSeries/NSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ/stollFrontLoaderFZ.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollFrontLoaderFZ60/stollFrontLoaderFZ60.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/stoll/stollToolBaleFork/stollToolBaleFork.xml" /> <!-- frontlader -->
+			<vehicle filename="$data/vehicles/johnDeere/series6R/series6R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="6" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+		</group>
+		<!-- Zuckerrüben ernten -->
+		<group fieldSize="medium" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/ropa/panther2/panther2.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/ropa/rr6x45/rr6x45.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/ropa/panther2/panther2.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/ropa/rr6x45/rr6x45.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/joskin/transSpace8000/transSpace8000.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/ropa/panther2/panther2.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/ropa/rr6x45/rr6x45.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/ropa/panther2/panther2.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/ropa/rr6x45/rr6x45.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/ropa/maus5/maus5.xml">
+				<!-- Drescher -->
+				<configuration name="motor" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/steyr/profiCVT/profiCVT.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/joskin/transSpace8000/transSpace8000.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/ropa/tiger6/tiger6.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/ropa/rrXL9/rrXL9.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/ropa/rrXLTrailer/rrXLTrailer.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/KS950/KS950.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="SUGARBEET">
+			<vehicle filename="$data/vehicles/holmer/terraDosT4_40/terraDosT4_40.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/holmer/terraFelis2/terraFelis2.xml" /> <!-- Drescher -->
+			<vehicle filename="$data/vehicles/holmer/terraDosT4_40/terraDosT4_40.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/holmer/terraDosT4_40/terraDosT4_40.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/holmer/holmerHR12/holmerHR12.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/holmer/holmerHR12/holmerHR12.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/holmer/holmerHR12/holmerHR12.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/holmer/holmerHR12Trailer/holmerHR12Trailer.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/holmer/holmerHR12Trailer/holmerHR12Trailer.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/holmer/holmerHR12Trailer/holmerHR12Trailer.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series7R/series7R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="5" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series7R/series7R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="5" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/strautmann/aperion3401/aperion3401.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/strautmann/aperion3401/aperion3401.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+		</group>
+		<!-- Mais dreschen -->
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/masseyFerguson/activa7347/activa7347.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/diamantHS8/diamantHS8.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/rostselmash/161/161.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/diamantHS8/diamantHS8.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/caseIH/magnum7240Pro/magnum7240Pro.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="13" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TAW30/TAW30.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/johnDeere/T560/T560.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="6" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/header608C/header608C.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan/leguan.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/masseyFerguson/activa7347/activa7347.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/diamantHS8/diamantHS8.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/masseyFerguson/activa7347/activa7347.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/diamantHS8/diamantHS8.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/masseyFerguson/activa7347/activa7347.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/diamantHS8/diamantHS8.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/T6/T6.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/bandit750/bandit750.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/agco/ideal9/IDEAL9.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/quasarHS16/quasarHS16.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/agco/ideal9/IDEAL9.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/quasarHS16/quasarHS16.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/johnDeere/series7R/series7R.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="5" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/joskin/drakkar8600/drakkar8600.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/quasarHS16/quasarHS16.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/wilsonTrailer/pacesetter/pacesetter.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/caseIH/axial9240/axial9240.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/diamantHS12/diamantHS12.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/lodeKing/distinction/distinction.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/elmersMfg/haulMaster/haulMaster.xml">
+				<!-- Anhänger -->
+				<configuration name="fillUnit" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/challenger/mt800/mt800.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/quasarHS16/quasarHS16.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/quasarHS16/quasarHS16.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/newHolland/cr1090/cr1090.xml">
+				<!-- Drescher -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/quasarHS16/quasarHS16.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/thueringerAgrar/leguan40/leguan40.xml" /> <!-- Schneidwerksanhänger -->
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+		</group>
+		<!-- Mais häckseln -->
+		<group fieldSize="medium" variant="MAIZE">
+			<vehicle filename="$data/vehicles/newHolland/newHollandFR780/newHollandFR780.xml">
+				<!-- Häcksler -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kemper/plus390/plus390.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/caseIH/magnum7240Pro/magnum7240Pro.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="13" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TAW30/TAW30.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/TAW30/TAW30.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/TAW30/TAW30.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="MAIZE">
+			<vehicle filename="$data/vehicles/krone/bigX1180/bigX1180.xml">
+				<!-- Häcksler -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/collect900_3/collect900_3.xml" /> <!-- Schneidwerk -->
+			<vehicle filename="$data/vehicles/fendt/fendt900/fendt900.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/fendt900/fendt900.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="wheel" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="3" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/vario1000/vario1000.xml">
+				<!-- Schlepper -->
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="4" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/TX560D/TX560D.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krone/TX560D/TX560D.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krone/TX560D/TX560D.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krone/TX560D/TX560D.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krone/TX560D/TX560D.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krone/TX560D/TX560D.xml" /> <!-- Anhänger -->
+		</group>
+		<!-- Kartoffeln ernten -->
+		<group fieldSize="medium" variant="POTATO">
+			<vehicle filename="$data/vehicles/grimme/varitron470/varitron470.xml">
+				<!-- Kartoffelroder -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/fendt700/fendt700.xml">
+				<!-- Schlepper -->
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="motor" id="3" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TAW30/TAW30.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="medium" variant="POTATO">
+			<vehicle filename="$data/vehicles/ropa/keiler2/keiler2.xml" /> <!-- Kartoffelroder -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/ropa/keiler2/keiler2.xml" /> <!-- Kartoffelroder -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/ropa/keiler2/keiler2.xml" /> <!-- Kartoffelroder -->
+			<vehicle filename="$data/vehicles/valtra/TSeries/TSeries.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="2" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="wheel" id="4" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml">
+				<!-- Schlepper -->
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="2" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="frontloader" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/kroeger/TKD302/TKD302.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/kroeger/HKD302/HKD302.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="POTATO">
+			<vehicle filename="$data/vehicles/grimme/varitron470/varitron470.xml">
+				<!-- Kartoffelroder -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/varitron470/varitron470.xml">
+				<!-- Kartoffelroder -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/varitron470/varitron470.xml">
+				<!-- Kartoffelroder -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/varitron470/varitron470.xml">
+				<!-- Kartoffelroder -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/grimme/varitron470/varitron470.xml">
+				<!-- Kartoffelroder -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/krampe/SB3060/SB3060.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/goldhofer/goldhoferStzVp3/goldhoferStzVp3Front.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/goldhofer/goldhoferStzVp3/goldhoferStzVp3Back.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/goldhofer/goldhoferStzVp3/goldhoferStzVp3Front.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/goldhofer/goldhoferStzVp3/goldhoferStzVp3Back.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/goldhofer/goldhoferStzVp3/goldhoferStzVp3Front.xml" /> <!-- Anhänger -->
+			<vehicle filename="$data/vehicles/goldhofer/goldhoferStzVp3/goldhoferStzVp3Back.xml" /> <!-- Anhänger -->
+		</group>
+		<group fieldSize="large" variant="POTATO">
+			<vehicle filename="$data/vehicles/grimme/varitron470/varitron470.xml">
+				<!-- Kartoffelroder -->
+				<configuration name="fillVolume" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="fillUnit" id="1" />
+				<configuration name="motor" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/tatra/tatraPhoenix/tatraPhoenix.xml">
+				<!-- Schlepper -->
+				<configuration name="attacherJoint" id="2" />
+				<configuration name="motor" id="1" />
+				<configuration name="wheel" id="1" />
+				<configuration name="baseMaterial" id="1" />
+				<configuration name="rimColor" id="1" />
+				<configuration name="powerTakeOff" id="2" />
+				<configuration name="fillUnit" id="1" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/KS950/KS950.xml" /> <!-- Anhänger -->
+		</group>
+	</mission>
+</missionVehicles>
