@@ -53,53 +53,6 @@ function BetterContracts.loadMissionVehicles(missionManager, superFunc, ...)
     return false
 end
 
-function ConfigurationManager:getConfigurationAttribute(configurationName, attribute)
-    local config = self:getConfigurationDescByName(configurationName)
-    if config == nil then
-        g_logManager:devError("getConfigurationAttribute(configurationName: %s, attribute: %s)", configurationName, attribute)
-        printCallstack()
-    end
-    return config[attribute]
-end
-
-function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)
-    MissionManager.AI_PRICE_MULTIPLIER = 1.5
-    MissionManager.MISSION_GENERATION_INTERVAL = 3600000 -- every 1 game hour
-end
-
-function BetterContracts:onSetMissionInfo(missionInfo, missionDynamicInfo)
-    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra1", BetterContracts.onClickMenuExtra1)
-    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra2", BetterContracts.onClickMenuExtra2)
-end
-
-function BetterContracts:onPostLoadMap(mapNode, mapFile)
-    local fieldsAmount = TableUtility.count(g_fieldManager.fields)
-    local adjustedFieldsAmount = math.max(fieldsAmount, 45)
-    MissionManager.MAX_MISSIONS = math.min(120, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 45 fields) max 120
-    MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 15), 2) -- max transport missions is 1/15 of maximum missions but not less then 2
-    MissionManager.MAX_MISSIONS = MissionManager.MAX_MISSIONS + MissionManager.MAX_TRANSPORT_MISSIONS -- add max transport missions to max missions
-    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS / 5, 30) -- max missions per generation = max mission / 5 but not more then 30
-    MissionManager.MAX_TRIES_PER_GENERATION = math.ceil(MissionManager.MAX_MISSIONS_PER_GENERATION * 1.5) -- max tries per generation 50% more then max missions per generation
-    g_logManager:devInfo("[%s] Fields amount %s (%s)", self.name, fieldsAmount, adjustedFieldsAmount)
-    g_logManager:devInfo("[%s] MAX_MISSIONS set to %s", self.name, MissionManager.MAX_MISSIONS)
-    g_logManager:devInfo("[%s] MAX_TRANSPORT_MISSIONS set to %s", self.name, MissionManager.MAX_TRANSPORT_MISSIONS)
-    g_logManager:devInfo("[%s] MAX_MISSIONS_PER_GENERATION set to %s", self.name, MissionManager.MAX_MISSIONS_PER_GENERATION)
-    g_logManager:devInfo("[%s] MAX_TRIES_PER_GENERATION set to %s", self.name, MissionManager.MAX_TRIES_PER_GENERATION)
-end
-
-function BetterContracts:onUpdate(dt)
-    self.fieldToMissionUpdateTimer = self.fieldToMissionUpdateTimer + dt
-    if self.fieldToMissionUpdateTimer >= self.fieldToMissionUpdateTimeout then
-        self.fieldToMission = {}
-        for _, mission in pairs(g_missionManager.missions) do
-            if mission.field ~= nil then
-                self.fieldToMission[mission.field.fieldId] = mission
-            end
-        end
-        self.fieldToMissionUpdateTimer = 0
-    end
-end
-
 function BetterContracts:loadExtraMissionVehicles(xmlFilename)
     local xmlFile = loadXMLFile("loadExtraMissionVehicles", xmlFilename)
     local modDirectory = nil
@@ -191,7 +144,45 @@ function BetterContracts:loadExtraMissionVehicles_configurations(xmlFile, vehicl
     return configurations
 end
 
-function BetterContracts.sortList(pageContracts, super, ...)
+function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)
+    MissionManager.AI_PRICE_MULTIPLIER = 1.5
+    MissionManager.MISSION_GENERATION_INTERVAL = 3600000 -- every 1 game hour
+end
+
+function BetterContracts:onSetMissionInfo(missionInfo, missionDynamicInfo)
+    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra1", BetterContracts.onClickMenuExtra1)
+    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra2", BetterContracts.onClickMenuExtra2)
+end
+
+function BetterContracts:onPostLoadMap(mapNode, mapFile)
+    local fieldsAmount = TableUtility.count(g_fieldManager.fields)
+    local adjustedFieldsAmount = math.max(fieldsAmount, 45)
+    MissionManager.MAX_MISSIONS = math.min(120, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 45 fields) max 120
+    MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 15), 2) -- max transport missions is 1/15 of maximum missions but not less then 2
+    MissionManager.MAX_MISSIONS = MissionManager.MAX_MISSIONS + MissionManager.MAX_TRANSPORT_MISSIONS -- add max transport missions to max missions
+    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS / 5, 30) -- max missions per generation = max mission / 5 but not more then 30
+    MissionManager.MAX_TRIES_PER_GENERATION = math.ceil(MissionManager.MAX_MISSIONS_PER_GENERATION * 1.5) -- max tries per generation 50% more then max missions per generation
+    g_logManager:devInfo("[%s] Fields amount %s (%s)", self.name, fieldsAmount, adjustedFieldsAmount)
+    g_logManager:devInfo("[%s] MAX_MISSIONS set to %s", self.name, MissionManager.MAX_MISSIONS)
+    g_logManager:devInfo("[%s] MAX_TRANSPORT_MISSIONS set to %s", self.name, MissionManager.MAX_TRANSPORT_MISSIONS)
+    g_logManager:devInfo("[%s] MAX_MISSIONS_PER_GENERATION set to %s", self.name, MissionManager.MAX_MISSIONS_PER_GENERATION)
+    g_logManager:devInfo("[%s] MAX_TRIES_PER_GENERATION set to %s", self.name, MissionManager.MAX_TRIES_PER_GENERATION)
+end
+
+function BetterContracts:onUpdate(dt)
+    self.fieldToMissionUpdateTimer = self.fieldToMissionUpdateTimer + dt
+    if self.fieldToMissionUpdateTimer >= self.fieldToMissionUpdateTimeout then
+        self.fieldToMission = {}
+        for _, mission in pairs(g_missionManager.missions) do
+            if mission.field ~= nil then
+                self.fieldToMission[mission.field.fieldId] = mission
+            end
+        end
+        self.fieldToMissionUpdateTimer = 0
+    end
+end
+
+function BetterContracts.sortList(pageContracts, superFunc, ...)
     -- sort by mission type and field number (multiply mission type by a big number to make it the first sorting parameter)
     table.sort(
         pageContracts.contracts,

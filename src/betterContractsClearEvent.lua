@@ -35,19 +35,22 @@ function BetterContractsClearEvent:run(connection)
     else
         -- if the event is coming from the server, both clients and server have to delete old contracts
         -- remove only inactive (status == 0) missions
-        ArrayUtility.remove(
-            g_missionManager.missions,
-            function(array, index)
-                return array[index].status == 0
-            end
-        )
-        for index, mission in pairs(g_missionManager.fieldToMission) do
-            if mission.status == 0 then
-                g_missionManager.fieldToMission[index] = nil
+
+        ---@type table<any, AbstractMission>
+        local missionsToDelete = {}
+
+        for i, mission in ipairs(g_missionManager.missions) do
+            if mission.status == AbstractMission.STATUS_STOPPED then
+                missionsToDelete[i] = mission
             end
         end
+
+        for _, mission in pairs(missionsToDelete) do
+            mission:delete()
+        end
+
         if g_currentMission.inGameMenu.isOpen and g_currentMission.inGameMenu.pageContracts.visible then
-            g_currentMission.inGameMenu.pageContracts:updateList()
+            g_currentMission.inGameMenu.pageContracts:setButtonsForState()
         end
     end
 end

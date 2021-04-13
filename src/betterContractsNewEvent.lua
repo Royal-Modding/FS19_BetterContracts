@@ -29,9 +29,9 @@ end
 
 function BetterContractsNewEvent:run(_)
     if g_server ~= nil then
-        g_missionManager:generateMissions(16.6667)
+        g_missionManager:generateMissions()
         -- reset generation timer
-        g_missionManager.generationTimer = MissionManager.MISSION_GENERATION_INTERVAL --/ 20
+        g_missionManager.generationTimer = MissionManager.MISSION_GENERATION_INTERVAL
     end
 end
 
