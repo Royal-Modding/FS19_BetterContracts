@@ -339,7 +339,7 @@ function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
 
                 renderText(posX, posY - 1 / g_screenHeight, self.textSize * self.zoom * scale, self.fullViewName)
 
-                local r, g, b, _ = unpack(Utility.getFarmColor(mission.farmId))
+                local r, g, b, _ = unpack(GameplayUtility.getFarmColor(mission.farmId))
                 setTextColor(r, g, b, alpha)
 
                 renderText(posX + 1 / g_screenWidth, posY, self.textSize * self.zoom * scale, self.fullViewName)
