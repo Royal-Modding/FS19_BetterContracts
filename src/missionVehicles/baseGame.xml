@@ -307,7 +307,7 @@
         <group fieldSize="small">
             <vehicle filename="$data/vehicles/newHolland/T5/T5.xml">
                 <!-- tractor -->
-                <configuration name="motor" id="3" />
+                <configuration name="motor" id="2" />
                 <configuration name="wheel" id="4" />
             </vehicle>
             <vehicle filename="$data/vehicles/salford/salford4204/salford4204.xml" /> <!-- plow -->

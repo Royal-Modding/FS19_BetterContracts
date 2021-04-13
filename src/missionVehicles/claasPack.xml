@@ -240,10 +240,7 @@
             <vehicle filename="$data/vehicles/amazone/D8_30/D8_30.xml" /> <!-- seeder -->
         </group>
         <group fieldSize="small" variant="GRAIN">
-            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true">
-                <!-- tractor -->
-                <configuration name="motor" id="6" />
-            </vehicle>
+            <vehicle filename="vehicles/claas/arion600/arion600.xml" isMod="true" />
             <vehicle filename="$data/vehicles/kuhn/kuhnBTF4000/kuhnBTF4000.xml" /> <!-- seeder -->
             <vehicle filename="$data/vehicles/kuhn/kuhnTF1500/kuhnTF1500.xml" /> <!-- weight -->
         </group>

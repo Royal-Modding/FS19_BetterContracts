@@ -50,7 +50,6 @@ function BetterContracts.loadMissionVehicles(missionManager, superFunc, ...)
         end
         return true
     end
-
     return false
 end
 
