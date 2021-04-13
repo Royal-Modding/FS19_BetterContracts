@@ -14,6 +14,8 @@ BetterContracts.fieldToMissionUpdateTimeout = 5000
 BetterContracts.fieldToMissionUpdateTimer = 5000
 
 function BetterContracts:initialize()
+    g_missionManager.missionMapNumChannels = 6
+
     if g_modIsLoaded["FS19_RefreshContracts"] then
         self.needsRefreshContractsConflictsPrevention = true
     end
@@ -23,7 +25,7 @@ function BetterContracts:initialize()
     end
 
     if not self.needsMoreMissionsAllowedConflictsPrevention then
-        Utility.overwrittenFunction(MissionManager, "hasFarmActiveMission", BetterContracts.hasFarmActiveMission)
+        MissionManager.hasFarmActiveMission = BetterContracts.hasFarmActiveMission
     end
     Utility.overwrittenFunction(MissionManager, "loadMissionVehicles", BetterContracts.loadMissionVehicles)
 
@@ -289,9 +291,17 @@ function BetterContracts.onClickClearContractsCallback(inGameMenu)
     BetterContractsClearEvent.sendEvent()
 end
 
--- this should allow to accept multiple contracts
-function BetterContracts:hasFarmActiveMission()
-    return false
+---@param missionManager MissionManager
+---@param farmId integer
+---@return boolean
+function BetterContracts.hasFarmActiveMission(missionManager, farmId)
+    local activeMissionsCount = 0
+    for _, mission in ipairs(missionManager.missions) do
+        if mission.farmId == farmId and (mission.status == AbstractMission.STATUS_RUNNING or mission.status == AbstractMission.STATUS_FINISHED) then
+            activeMissionsCount = activeMissionsCount + 1
+        end
+    end
+    return activeMissionsCount >= 2 ^ missionManager.missionMapNumChannels - 1
 end
 
 function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
