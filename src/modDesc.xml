@@ -106,7 +106,7 @@ Changelog ${version}:
 		<text name="bc_new_contracts">
 			<en>New Contracts</en>
 			<it>Nuovi Contratti</it>
-			<de>Neue Verträge</de>
+			<de>Vertragsliste aktualisieren</de>
 			<fr>Nouveaux contrats</fr>
 			<pl>Nowe kontrakty</pl>
 			<ru>Новые контракты</ru>
@@ -114,7 +114,7 @@ Changelog ${version}:
 		<text name="bc_clear_contracts">
 			<en>Clear Contracts</en>
 			<it>Pulisci lista</it>
-			<de>Klare Verträge</de>
+			<de>Vertragsliste leeren</de>
 			<fr>Supprimer les contrats non choisis</fr>
 			<pl>Wyczyść kontrakty</pl>
 			<ru>Очистить контракты</ru>
