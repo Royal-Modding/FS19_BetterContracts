@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--=====================================================================================================
+-- SEECONT GUI additions
+--
+-- Purpose:		Enhance ingame contracts menu.
+-- Author:		Mmtrx		
+-- Changelog:
+--  v0.1		17.03.2021	initial beta
+--	v1.0.0		20.04.2021	submit for release 
+--=======================================================================================================
+-->
+<GUI name="npcDetails">
+	<GuiElement type="empty" id="npcbox" size="297px 300px" position="0px 90px" screenAlign="bottomCenter" positionOrigin="bottomCenter" hasFrame="true" debugEnabled="false" >
+	<!-- left column -->
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" id="field" position="5px 0px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" 			  position="5px -34px" text="$l10n_SC_widhei" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" id="line3" position="5px -68px" text="$l10n_SC_worktim" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" id="line4a" position="5px -102px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" id="line4b" position="5px -136px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" id="line5" position="5px -170px" text="$l10n_SC_price" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" id="line6" position="5px -204px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemField" 			  position="5px -238px" text="$l10n_SC_profpmin" />
+
+	<!-- right column -->
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="filltype" position="-10px 0px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="dimen" position="-10px -34px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="etime" position="-10px -68px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu4a" position="-10px -102px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu4b" position="-10px -136px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="price" position="-10px -170px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu6" position="-10px -204px" />
+	    <GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu7" position="-10px -238px" />
+	</GuiElement>
+
+	<!-- Sort buttons -->
+ 	<GuiElement type="empty" id="sortbox" profile="ingameMenuMapFilterBox" size="287px 80px" position="5px 5px" screenAlign="bottomLeft" positionOrigin="bottomLeft" frameThickness="1dp 1dp 1dp 1dp" debugEnabled="false">
+		<GuiElement type="boxLayout" profile="ingameMenuMapFilterButtonBox" id="layout" screenAlign="bottomLeft" positionOrigin="bottomLeft" size="120px 45px" position="0px -17px" >
+			<GuiElement type="button" profile="SeeContsortCat"  id="sortcat" />
+			<GuiElement type="button" profile="SeeContsortProf" id="sortprof" />
+			<GuiElement type="button" profile="SeeContsortpMin" id="sortpmin" />
+    	</GuiElement>
+		<GuiElement type="text" profile="textDefault" position="0px 45px" textOffset="10px 5px" text="$l10n_SC_sort" />
+        <GuiElement type="text" profile="ingameMenuHelpRowText" id="helpsort" size="220px 40px" position="60px 16px" text=""  />
+	</GuiElement>
+</GUI>

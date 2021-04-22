@@ -8,6 +8,36 @@ InitRoyalUtility(Utils.getFilename("lib/utility/", g_currentModDirectory))
 InitRoyalMod(Utils.getFilename("lib/rmod/", g_currentModDirectory))
 
 ---@class BetterContracts : RoyalMod
+r_debug_r = true
+SC= {                               
+    FERTILIZER  = 1,    -- prices index
+    LIQUIDFERT  = 2,
+    HERBICIDE   = 3,
+    SEEDS       = 4,
+    CONTROLS    = {
+        npcbox  = "npcbox",
+        sortbox = "sortbox",
+        layout  = "layout",
+        filltype = "filltype",
+        line3   = "line3",
+        line4a  = "line4a",
+        line4b  = "line4b",
+        line5   = "line5",
+        line6   = "line6",
+        field   = "field",
+        dimen   = "dimen",  
+        etime   = "etime",   
+        valu4a  = "valu4a",
+        valu4b  = "valu4b",
+        price   = "price",
+        valu6   = "valu6",
+        valu7   = "valu7",
+        sortcat = "sortcat",
+        sortprof = "sortprof",
+        sortpmin = "sortpmin",
+        helpsort = "helpsort",
+    }
+}
 BetterContracts = RoyalMod.new(r_debug_r, false)
 BetterContracts.fieldToMission = {}
 BetterContracts.fieldToMissionUpdateTimeout = 5000
@@ -15,24 +45,67 @@ BetterContracts.fieldToMissionUpdateTimer = 5000
 
 function BetterContracts:initialize()
     g_missionManager.missionMapNumChannels = 6
+    self.turnTime   = 5.0               -- estimated seconds per turn at end of each lane
+    self.events     = {}            
+    self.initialized= false
+                    --  Kuhn Axis402    Hardi Mega      Väderst Rapid   Väderst Tempo   mission
+                    --  def spreader    def sprayer     def sower       def planter     vehicle
+    self.SPEEDLIMS  = { 20,             12,             18,             15,             0} -- SPEEDLIMIT
+    self.WORKWIDTH  = { 24,             24,              6,              6,             0} -- WORKWIDTH
+    
+    self.typeToCat  = {4,3,3,2,1,3,2,2,5}   -- mission.type to self category: harvest, spread, simple, mow, transport
+    self.harvest    = {}                -- mow and harvest missions
+    self.spread     = {}                -- sow, spray, fertilize 
+    self.simple     = {}                -- plow, cultivate, weed
+    self.transp     = {}                -- transport
+    self.baling     = {}                -- mow/ bale
+    self.IdToCont   = {}                -- to find a contract from its mission id 
+    self.catHarvest = "BEETHARVESTING CORNHEADERS COTTONVEHICLES CUTTERS POTATOHARVESTING POTATOVEHICLES SUGARCANEHARVESTING"
+    self.catSpread  = "fertilizerspreaders seeders planters sprayers sprayervehicles"
+    self.catSimple  = "CULTIVATORS DISCHARROWS PLOWS POWERHARROWS SUBSOILERS WEEDERS"
+    self.missionUpdTimeout  = 15000
+    self.missionUpdTimer    = 0
+    self.isOn       = false
+    self.numCont    = 0                 -- # of contracts in our tables
+    self.my         = {}                -- will hold my gui element adresses
+    self.sort       = 0                 -- sorted status: 1 cat, 2 prof, 3 permin
+    self.lastSort   = 0                 -- last sorted status
+    self.buttons    = {
+        {"sortcat",  g_i18n:getText("SC_sortCat")}, -- {button id, help text}
+        {"sortprof", g_i18n:getText("SC_sortProf")}, 
+        {"sortpmin", g_i18n:getText("SC_sortpMin")}, 
+    }
+
+    -- make my Gui texts global, needed for my Gui profilesd to work
+    local gTexts = self.gameEnv.g_i18n.texts
+    for k, v in pairs (g_i18n.texts) do
+        local prefix, _ = k:find("SC_", 1, true)
+        if prefix ~= nil then gTexts[k] = v; end
+    end
+    self.gameEnv["g_betterContracts"] = self
 
     if g_modIsLoaded["FS19_RefreshContracts"] then
         self.needsRefreshContractsConflictsPrevention = true
     end
 
-    if g_modIsLoaded["FS19_MoreMissionsAllowed"] then
-        self.needsMoreMissionsAllowedConflictsPrevention = true
-    end
-
-    if not self.needsMoreMissionsAllowedConflictsPrevention then
-        MissionManager.hasFarmActiveMission = BetterContracts.hasFarmActiveMission
-    end
     Utility.overwrittenFunction(MissionManager, "loadMissionVehicles", BetterContracts.loadMissionVehicles)
 
-    Utility.overwrittenFunction(InGameMenuContractsFrame, "sortList", BetterContracts.sortList)
-
-    Utility.overwrittenFunction(InGameMenuContractsFrame, "onFrameOpen", BetterContracts.onContractsFrameOpen)
-    Utility.appendedFunction(InGameMenuContractsFrame, "onFrameClose", BetterContracts.onContractsFrameClose)
+    -- Append functions for ingame menu contracts frame 
+    InGameMenuContractsFrame.onFrameOpen  = 
+    Utils.overwrittenFunction(InGameMenuContractsFrame.onFrameOpen, onFrameOpen)
+    InGameMenuContractsFrame.onFrameClose = 
+    Utils.appendedFunction(InGameMenuContractsFrame.onFrameClose, onFrameClose)
+    InGameMenuContractsFrame.updateFarmersBox = 
+    Utils.appendedFunction(InGameMenuContractsFrame.updateFarmersBox, updateFarmersBox)
+    InGameMenuContractsFrame.assignContractToListItem = 
+    Utils.appendedFunction(InGameMenuContractsFrame.assignContractToListItem, assignListItem)
+    InGameMenuContractsFrame.updateList = 
+    Utils.prependedFunction(InGameMenuContractsFrame.updateList, updateList)
+    InGameMenuContractsFrame.sortList = 
+    Utils.overwrittenFunction(InGameMenuContractsFrame.sortList, sortList)
+    -- to allow multiple missions:
+    MissionManager.hasFarmActiveMission =
+    Utils.overwrittenFunction(nil, function() return false end)
 end
 
 ---@param missionManager MissionManager
@@ -146,164 +219,6 @@ function BetterContracts:loadExtraMissionVehicles_configurations(xmlFile, vehicl
     return configurations
 end
 
-function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)
-    MissionManager.AI_PRICE_MULTIPLIER = 1.5
-    MissionManager.MISSION_GENERATION_INTERVAL = 3600000 -- every 1 game hour
-end
-
-function BetterContracts:onSetMissionInfo(missionInfo, missionDynamicInfo)
-    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra1", BetterContracts.onClickMenuExtra1)
-    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra2", BetterContracts.onClickMenuExtra2)
-end
-
-function BetterContracts:onPostLoadMap(mapNode, mapFile)
-    local fieldsAmount = TableUtility.count(g_fieldManager.fields)
-    local adjustedFieldsAmount = math.max(fieldsAmount, 45)
-    MissionManager.MAX_MISSIONS = math.min(120, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 45 fields) max 120
-    MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 15), 2) -- max transport missions is 1/15 of maximum missions but not less then 2
-    MissionManager.MAX_MISSIONS = MissionManager.MAX_MISSIONS + MissionManager.MAX_TRANSPORT_MISSIONS -- add max transport missions to max missions
-    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS / 5, 30) -- max missions per generation = max mission / 5 but not more then 30
-    MissionManager.MAX_TRIES_PER_GENERATION = math.ceil(MissionManager.MAX_MISSIONS_PER_GENERATION * 1.5) -- max tries per generation 50% more then max missions per generation
-    g_logManager:devInfo("[%s] Fields amount %s (%s)", self.name, fieldsAmount, adjustedFieldsAmount)
-    g_logManager:devInfo("[%s] MAX_MISSIONS set to %s", self.name, MissionManager.MAX_MISSIONS)
-    g_logManager:devInfo("[%s] MAX_TRANSPORT_MISSIONS set to %s", self.name, MissionManager.MAX_TRANSPORT_MISSIONS)
-    g_logManager:devInfo("[%s] MAX_MISSIONS_PER_GENERATION set to %s", self.name, MissionManager.MAX_MISSIONS_PER_GENERATION)
-    g_logManager:devInfo("[%s] MAX_TRIES_PER_GENERATION set to %s", self.name, MissionManager.MAX_TRIES_PER_GENERATION)
-end
-
-function BetterContracts:onUpdate(dt)
-    self.fieldToMissionUpdateTimer = self.fieldToMissionUpdateTimer + dt
-    if self.fieldToMissionUpdateTimer >= self.fieldToMissionUpdateTimeout then
-        self.fieldToMission = {}
-        for _, mission in pairs(g_missionManager.missions) do
-            if mission.field ~= nil then
-                self.fieldToMission[mission.field.fieldId] = mission
-            end
-        end
-        self.fieldToMissionUpdateTimer = 0
-    end
-end
-
-function BetterContracts.sortList(pageContracts, superFunc, ...)
-    -- sort by mission type and field number (multiply mission type by a big number to make it the first sorting parameter)
-    table.sort(
-        pageContracts.contracts,
-        function(c1, c2)
-            local c1V = c1.mission.type.typeId * -1000
-            if c1.mission.field ~= nil then
-                c1V = c1V + c1.mission.field.fieldId
-            end
-            if c1.active then
-                c1V = c1V - 100000
-            end
-            if c1.finished then
-                if c1.mission.success then
-                    c1V = c1V - 1000000
-                else
-                    c1V = c1V - 50000
-                end
-            end
-
-            local c2V = c2.mission.type.typeId * -1000
-            if c2.mission.field ~= nil then
-                c2V = c2V + c2.mission.field.fieldId
-            end
-            if c2.active then
-                c2V = c2V - 100000
-            end
-            if c2.finished then
-                if c2.mission.success then
-                    c2V = c2V - 1000000
-                else
-                    c2V = c2V - 50000
-                end
-            end
-
-            return c1V < c2V
-        end
-    )
-end
-
-function BetterContracts:onContractsFrameOpen(superFunc, ...)
-    if BetterContracts.needsRefreshContractsConflictsPrevention then
-        -- this will prevent execution of FS19_RefreshContracts code (because they check for that field to be nil)
-        g_currentMission.inGameMenu.refreshContractsElement_Button = 1
-    end
-    superFunc(self, ...)
-    g_currentMission.inGameMenu.refreshContractsElement_Button = nil
-
-    -- add new buttons
-    if g_currentMission.inGameMenu.newContractsButton == nil then
-        g_currentMission.inGameMenu.newContractsButton = g_currentMission.inGameMenu.menuButton[1]:clone(self)
-        g_currentMission.inGameMenu.newContractsButton.onClickCallback = BetterContracts.onClickNewContractsCallback
-        g_currentMission.inGameMenu.newContractsButton:setText(g_i18n:getText("bc_new_contracts"))
-        g_currentMission.inGameMenu.newContractsButton:setInputAction("MENU_EXTRA_1")
-        g_currentMission.inGameMenu.menuButton[1].parent:addElement(g_currentMission.inGameMenu.newContractsButton)
-    end
-
-    if g_currentMission.inGameMenu.clearContractsButton == nil then
-        g_currentMission.inGameMenu.clearContractsButton = g_currentMission.inGameMenu.menuButton[1]:clone(self)
-        g_currentMission.inGameMenu.clearContractsButton.onClickCallback = BetterContracts.onClickClearContractsCallback
-        g_currentMission.inGameMenu.clearContractsButton:setText(g_i18n:getText("bc_clear_contracts"))
-        g_currentMission.inGameMenu.clearContractsButton:setInputAction("MENU_EXTRA_2")
-        g_currentMission.inGameMenu.menuButton[1].parent:addElement(g_currentMission.inGameMenu.clearContractsButton)
-    end
-end
-
-function BetterContracts:onContractsFrameClose()
-    -- remove new buttons
-    if g_currentMission.inGameMenu.newContractsButton ~= nil then
-        g_currentMission.inGameMenu.newContractsButton:unlinkElement()
-        g_currentMission.inGameMenu.newContractsButton:delete()
-        g_currentMission.inGameMenu.newContractsButton = nil
-    end
-
-    if g_currentMission.inGameMenu.clearContractsButton ~= nil then
-        g_currentMission.inGameMenu.clearContractsButton:unlinkElement()
-        g_currentMission.inGameMenu.clearContractsButton:delete()
-        g_currentMission.inGameMenu.clearContractsButton = nil
-    end
-end
-
-function BetterContracts.onClickMenuExtra1(inGameMenu, superFunc, ...)
-    if superFunc ~= nil then
-        superFunc(inGameMenu, ...)
-    end
-    if inGameMenu.newContractsButton ~= nil then
-        inGameMenu.newContractsButton.onClickCallback(inGameMenu)
-    end
-end
-
-function BetterContracts.onClickMenuExtra2(inGameMenu, superFunc, ...)
-    if superFunc ~= nil then
-        superFunc(inGameMenu, ...)
-    end
-    if inGameMenu.clearContractsButton ~= nil then
-        inGameMenu.clearContractsButton.onClickCallback(inGameMenu)
-    end
-end
-
-function BetterContracts.onClickNewContractsCallback(inGameMenu)
-    BetterContractsNewEvent.sendEvent()
-end
-
-function BetterContracts.onClickClearContractsCallback(inGameMenu)
-    BetterContractsClearEvent.sendEvent()
-end
-
----@param missionManager MissionManager
----@param farmId integer
----@return boolean
-function BetterContracts.hasFarmActiveMission(missionManager, farmId)
-    local activeMissionsCount = 0
-    for _, mission in ipairs(missionManager.missions) do
-        if mission.farmId == farmId and (mission.status == AbstractMission.STATUS_RUNNING or mission.status == AbstractMission.STATUS_FINISHED) then
-            activeMissionsCount = activeMissionsCount + 1
-        end
-    end
-    return activeMissionsCount >= 2 ^ missionManager.missionMapNumChannels - 1
-end
-
 function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
     if self:getIsVisible() and self.enabled then
         scale = scale or 1
@@ -393,3 +308,208 @@ function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
         end
     end
 end
+
+function BetterContracts:onMissionInitialize(baseDirectory, missionCollaborators)
+    MissionManager.AI_PRICE_MULTIPLIER = 1.5
+    MissionManager.MISSION_GENERATION_INTERVAL = 3600000 -- every 1 game hour
+end
+
+function BetterContracts:onSetMissionInfo(missionInfo, missionDynamicInfo)
+    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra1", onClickMenuExtra1)
+    Utility.overwrittenFunction(g_currentMission.inGameMenu, "onClickMenuExtra2", onClickMenuExtra2)
+end
+
+function BetterContracts:onPostLoadMap(mapNode, mapFile)
+    local fieldsAmount = TableUtility.count(g_fieldManager.fields)
+    local adjustedFieldsAmount = math.max(fieldsAmount, 45)
+    MissionManager.MAX_MISSIONS = math.min(120, math.ceil(adjustedFieldsAmount * 0.60)) -- max missions = 60% of fields amount (minimum 45 fields) max 120
+    MissionManager.MAX_TRANSPORT_MISSIONS = math.max(math.ceil(MissionManager.MAX_MISSIONS / 15), 2) -- max transport missions is 1/15 of maximum missions but not less then 2
+    MissionManager.MAX_MISSIONS = MissionManager.MAX_MISSIONS + MissionManager.MAX_TRANSPORT_MISSIONS -- add max transport missions to max missions
+    MissionManager.MAX_MISSIONS_PER_GENERATION = math.min(MissionManager.MAX_MISSIONS / 5, 30) -- max missions per generation = max mission / 5 but not more then 30
+    MissionManager.MAX_TRIES_PER_GENERATION = math.ceil(MissionManager.MAX_MISSIONS_PER_GENERATION * 1.5) -- max tries per generation 50% more then max missions per generation
+    g_logManager:devInfo("[%s] Fields amount %s (%s)", self.name, fieldsAmount, adjustedFieldsAmount)
+    g_logManager:devInfo("[%s] MAX_MISSIONS set to %s", self.name, MissionManager.MAX_MISSIONS)
+    g_logManager:devInfo("[%s] MAX_TRANSPORT_MISSIONS set to %s", self.name, MissionManager.MAX_TRANSPORT_MISSIONS)
+    g_logManager:devInfo("[%s] MAX_MISSIONS_PER_GENERATION set to %s", self.name, MissionManager.MAX_MISSIONS_PER_GENERATION)
+    g_logManager:devInfo("[%s] MAX_TRIES_PER_GENERATION set to %s", self.name, MissionManager.MAX_TRIES_PER_GENERATION)
+
+    -- initialize constants depending on game manager instances
+    self.ft     = g_fillTypeManager.fillTypes
+    self.miss   = g_missionManager.missions
+    self.prices = {-- storeprices per 1000 l 
+        g_storeManager.xmlFilenameToItem["data/objects/bigbagcontainer/bigbagcontainerfertilizer.xml"].price,
+        g_storeManager.xmlFilenameToItem["data/objects/pallets/liquidtank/fertilizertank.xml"].price / 2,
+        g_storeManager.xmlFilenameToItem["data/objects/pallets/liquidtank/herbicidetank.xml"].price / 2,
+        g_storeManager.xmlFilenameToItem["data/objects/bigbagcontainer/bigbagcontainerseeds.xml"].price 
+    }
+    self.sprUse = {
+        g_sprayTypeManager.sprayTypes[SprayType.FERTILIZER].litersPerSecond,
+        g_sprayTypeManager.sprayTypes[SprayType.LIQUIDFERTILIZER].litersPerSecond,
+        g_sprayTypeManager.sprayTypes[SprayType.HERBICIDE].litersPerSecond,
+    }
+    self.mtype = { 
+        FERTILIZE   = g_missionManager:getMissionType("fertilize").typeId,
+        SOW         = g_missionManager:getMissionType("sow").typeId,
+        SPRAY       = g_missionManager:getMissionType("spray").typeId,
+    }
+    self.gameMenu = g_currentMission.inGameMenu
+    self.frCon = self.gameMenu.pageContracts
+
+    -- load my gui xmls
+    if not self:loadGUI(true, self.directory.."gui/") then
+        print(string.format(
+        "** Info: - '%s.Gui' failed to load! Supporting files are missing.", self.name))
+    end
+
+    -- setup my display elements ------------------------------------------------------
+        -- add field "profit" to all listItems
+    for _, item in ipairs(self.frCon.contractsList.elements) do
+        local rewd   = item:getDescendantByName("reward")
+        local profit = rewd:clone(item)
+        profit.name  = "profit"
+        profit:setPosition(-110/1920, 0)
+        profit:setTextColor(1,1,1,1)
+        profit:setVisible(false)
+    end
+        -- set controls for npcbox, sortbox and their elements:
+    for _, name in pairs(SC.CONTROLS) do
+        self.my[name] = self.frCon.farmerBox:getDescendantById(name)
+    end 
+        -- set callbacks for our 3 sort buttons
+    for _, name in ipairs({"sortcat","sortprof","sortpmin"}) do
+        self.my[name].onClickCallback           = onClickSortButton
+        self.my[name].onHighlightCallback       = onHighSortButton
+        self.my[name].onHighlightRemoveCallback = onRemoveSortButton
+        self.my[name].onFocusCallback           = onHighSortButton
+        self.my[name].onLeaveCallback           = onRemoveSortButton
+    end
+    self.my.npcbox:setVisible(false)
+    self.my.sortbox:setVisible(false)
+    self.initialized = true
+end
+
+function BetterContracts:loadGUI(canLoad, guiPath)
+    if canLoad then
+        local fname
+        -- load my gui profiles 
+        fname = guiPath .. "guiProfiles.xml"
+        if fileExists(fname) then
+            g_gui:loadProfiles(fname)
+        else
+            canLoad = false
+        end
+        -- load "SCGui.xml"
+        fname = guiPath .. "SCGui.xml"
+        if canLoad and fileExists(fname) then
+            local xmlFile = loadXMLFile("Temp", fname)
+            local fbox = self.gameMenu.pageContracts.farmerBox
+            g_gui:loadGuiRec(xmlFile, "GUI", fbox, self.gameMenu.pageContracts)
+            local layout = fbox:getDescendantById("layout")
+            layout:invalidateLayout(true)       -- adjust sort buttons
+            fbox:applyScreenAlignment()
+            fbox:updateAbsolutePosition()
+            fbox:onGuiSetupFinished()           -- connect the tooltip elements
+            delete(xmlFile)
+        else
+            canLoad = false
+            print(string.format("**Error: [GuiLoader %s]  Required file '%s' could not be found!", 
+                self.modName, fname))
+        end
+    end
+    return canLoad
+end;
+function BetterContracts:refresh()
+    -- refresh our contract tables
+    self.harvest, self.spread, self.simple, self.baling, self.transp = {}, {}, {}, {}, {}
+    self.IdToCont = {}
+    local m
+    for i, m in ipairs(self.miss) do 
+        self.IdToCont[m.id] = self:addMission(m) 
+    end
+    self.numCont = #self.miss
+end;
+function BetterContracts:update(dt)
+    local self = g_betterContracts
+    self.missionUpdTimer = self.missionUpdTimer + dt
+    if self.missionUpdTimer >= self.missionUpdTimeout then
+        self:refresh()
+        self.fieldToMission = {}
+        for _, mission in pairs(g_missionManager.missions) do
+            if mission.field ~= nil then
+                self.fieldToMission[mission.field.fieldId] = mission
+            end
+        end
+        self.missionUpdTimer = 0
+    end
+end;
+function BetterContracts:addMission(m)
+    -- add mission m to the corresponding BetterContracts list 
+    local cont = {}
+    local dim, wid, hei, dura, wwidth, speed, vtype, vname
+    local cat = self.typeToCat[m.type.typeId]
+    if cat < 5 then
+        dim = self:getDimensions(m.field, false)
+        wid, hei = dim.width, dim.height
+        if wid > hei then wid, hei = hei, wid end;
+
+        wwidth, speed, vtype, vname = self:getFromVehicle(cat ,m)
+        -- estimate mission duration:
+        if wwidth ~= nil and wwidth >0 then
+            _, dura = self:estWorktime(wid, hei, wwidth, speed)
+        elseif cat ~= 2 then
+            print("**Error BetterContracts:addMission() - getFromVehicle() returned 0")
+            dura = 1
+        end
+    end
+    if cat == 1 then
+        local keep = math.floor(m.expectedLiters * 0.265)
+        local price= m.sellPoint:getEffectiveFillTypePrice(m.fillType)
+        local profit = m.reward + keep * price
+        cont = {
+            miss    = m,
+            width   = wid, height = hei,
+            worktime= dura,
+            ftype   = self.ft[m.fillType].title,
+            deliver = math.floor(m.expectedLiters * 0.735),     --must be delivered
+            keep    = keep,                                     --can be sold on your own
+            price   = price *1000, 
+            profit  = profit,
+            permin  = profit /dura *60,
+        }
+        table.insert(self.harvest,cont)
+    elseif cat == 2 then 
+        cont = self:spreadMission(m, wid, hei, wwidth, speed)
+        table.insert(self.spread, cont)
+    elseif cat == 3 then
+        cont = {
+            miss    = m,
+            width   = wid, height = hei,
+            worktime= dura,
+            profit  = m.reward,
+            permin  = m.reward/dura *60
+        }
+        table.insert(self.simple, cont)
+    elseif cat == 4 then
+        local keep = math.floor(m.expectedLiters * 0.2105)
+        local price= m.sellPoint:getEffectiveFillTypePrice(m.fillType)
+        local profit = m.reward + keep * price
+        cont = {
+            miss    = m,
+            width   = wid, height = hei,
+            worktime= dura *3,      -- dura is just the mow time, adjust for windrowing/ baling
+            ftype   = self.ft[m.fillType].title,
+            deliver = math.ceil(m.expectedLiters - keep),--#bales to be delivered
+            keep    = keep,                                     --can be sold on your own
+            price   = price *1000, 
+            profit  = profit,
+            permin  = profit /dura /3 *60,
+        }
+        table.insert(self.baling, cont)
+    else
+        cont = {miss = m,
+                profit = m.reward,
+                permin = 0}
+        table.insert(self.transp, cont)
+    end
+    return {cat, cont}
+end;

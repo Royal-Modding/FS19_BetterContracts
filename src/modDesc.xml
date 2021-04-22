@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<modDesc descVersion="${descVersion}">
+<modDesc descVersion="52">
 	<author>${author}</author>
-	<version>${version}</version>
+	<version>1.2.0.0</version>
 	<title>
 		<en>Better Contracts</en>
 		<fr>Gestion des contrats</fr>
@@ -101,8 +101,11 @@ Changelog ${version}:
 		<sourceFile filename="betterContractsClearEvent.lua" />
 		<sourceFile filename="betterContracts.lua" />
 		<sourceFile filename="missionManagerFix.lua" />
+		<sourceFile filename="scripts/debug.lua" />
+		<sourceFile filename="scripts/gui.lua" />
+		<sourceFile filename="scripts/userint.lua" />
 	</extraSourceFiles>
-	<l10n>
+    <l10n filenamePrefix="l10n/l10n">
 		<text name="bc_new_contracts">
 			<en>New Contracts</en>
 			<it>Nuovi Contratti</it>
@@ -120,4 +123,16 @@ Changelog ${version}:
 			<ru>Очистить контракты</ru>
 		</text>
 	</l10n>
+    <actions>
+        <action name="MENU_EXTRA_3" category="SYSTEM" axisType="HALF"  ignoreComboMask="true"/>
+        <action name="SC_Con"       category="PLAYER" axisType="HALF"  ignoreComboMask="false"/>
+    </actions>  
+    <inputBinding>
+        <actionBinding action="MENU_EXTRA_3">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_s" index="1"/>
+        </actionBinding>
+        <actionBinding action="SC_Con" >
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_c" />
+        </actionBinding>
+    </inputBinding> 
 </modDesc>
