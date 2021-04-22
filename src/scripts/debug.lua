@@ -1,11 +1,12 @@
 --=======================================================================================================
--- BetterContracts SCRIPT 	-autoStartSavegameId 1
+-- BetterContracts SCRIPT 
 --
 -- Purpose:		Enhance ingame contracts menu.
--- Author:		Mmtrx		
+-- Author:		Royal-Modding / Mmtrx		
 -- Changelog:
---  v0.1		17.03.2021	initial beta
---	v1.0.0		20.04.2021	submit for release 
+--  v1.0.0.0	19.10.2020	initial by Royal-Modding
+--	v1.2.0.0	12.04.2021	release candidate RC-2
+--  v1.2.1.0	22.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
 --=======================================================================================================
 
 -------------------- development helper functions ---------------------------------------------------
