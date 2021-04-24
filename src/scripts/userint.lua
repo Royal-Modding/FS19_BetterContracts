@@ -12,7 +12,7 @@
 -------------------- mission analysis functions ---------------------------------------------------
 function BetterContracts:getDimensions(field, verbose)
  	local numd = getNumOfChildren(field.fieldDimensions)
- 	local dim, x0,x1,x2, z0,z1,z2, widthX, widthZ, widthLength, heightLength, area 
+ 	local dim, x0,x1,x2, z0,z1,z2, widthX, widthZ, heightX, heightZ, widthLength, heightLength, area 
  	local xmin,xmax, zmin,zmax 
 	local dimensions = {
 		minX =  999999,
@@ -109,7 +109,7 @@ function BetterContracts:getFromVehicle(cat, m)
 					wwidth = math.max(unpack(vec.specs.workingWidthVar)) -- e.g. BREDAL K165 has multiple
 					if wwidth == nil then 
 						print(string.format(
-							"**Error BetterContracts:getFromVehicle() - could not get workingWidth for '%s'",v.filename))
+							"**Error BetterContracts:getFromVehicle() - could not get workingWidth for '%s'",spr))
 					end
 				end
 				break

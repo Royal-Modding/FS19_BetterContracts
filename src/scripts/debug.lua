@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 --=======================================================================================================
 -- BetterContracts SCRIPT 
 --
@@ -6,29 +7,18 @@
 -- Changelog:
 --  v1.0.0.0	19.10.2020	initial by Royal-Modding
 --	v1.2.0.0	12.04.2021	release candidate RC-2
---  v1.2.1.0	22.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
+--  v1.2.1.0	24.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
 --=======================================================================================================
 
 -------------------- development helper functions ---------------------------------------------------
-function registerActionEvent()
-	-- gets called when player leaves vehicle
-	local self, ok, eventId = g_SeeContracts
-
-	ok, eventId = InputBinding.registerActionEvent(
-		g_inputBinding,"SC_Con",self,actionprint,false,true,false,true)
-	if ok then
-		table.insert(self.events, eventId);
-		g_inputBinding.events[eventId].displayIsVisible = true;
-   	end
-end;
-function removeActionEvent()
-	-- gets called when player enters vehicle
-	g_SeeContracts.events = {};
-end;
+function BetterContracts:consoleCommandPrint()
+    actionprint()
+end
 function loadSettings()
 	--load settings from modsSettings folder
 	local key = "SeeCont"
-	local f = self.modsSettings .. 'SeeCont.xml'
+	local self = g_betterContracts
+	local f = g_betterContracts.modsSettings .. 'SeeCont.xml'
 	if fileExists(f) then
 		local xmlFile = loadXMLFile("SeeCont", f, key);
 		self.dispSize = 	Utils.getNoNil(getXMLInt(xmlFile, key.."#size"), 1);			
@@ -39,7 +29,7 @@ function loadSettings()
 		print(string.format("read settings from %s: size = %d, debug = %s", 
 			f,self.dispSize,self.debug))
 	end
-end;
+end
 function saveSettings()
 	local key = "SeeCont"
 	local f = g_betterContracts.modsSettings .. 'SeeCont.xml'
@@ -50,13 +40,12 @@ function saveSettings()
 	delete(xmlFile);
 	if g_betterContracts.debug then
 		print("** BetterContracts:saved settings to " ..f);
-	end;
-end;
+	end
+end
 function actionprint()
 	-- print table of current missions
 	local sep = string.rep("-",45)
 	local self = g_betterContracts
-
 	-- initialize contracts tables :
 	self:refresh()
 
@@ -78,9 +67,6 @@ function actionprint()
 
 	for i,c in ipairs(self.spread) do
 		local m = c.miss
-		ftext = fer
-		if m.type.typeId == self.mtype.SOW then ftext = "Saat" end
-		if c.bestj == 2 then ftext = liq end
 		local j = c.bestj
 		print(string.format("%2s %10s %10s %10.2f %10s %10s %10.10s %10d %10s %10d %10s %10s",
 		i, m.type.name, m.field.fieldId, m.field.fieldArea, g_i18n:formatNumber(m.reward),
@@ -104,7 +90,7 @@ function actionprint()
 				c.miss.reward, g_i18n:formatMinutes(c.worktime), g_i18n:formatNumber(c.miss.reward, 0)))
 		end
 	end
-end;
+end
 --[[
 Nr       Type      Field         ha     reward   Filltype    usage      price       cost       Total
  5  fertilize         16       1.10       1996     Dünger      330     	 1260       -421        1576

@@ -2,8 +2,8 @@
 <l10n>
 	<texts>
 		<!-- Gui Buttons -->
-		<text name = "bc_new_contracts"		text= "New Contracts"/>
-		<text name = "bc_clear_contracts"	text= "Clear Contracts"/>
+		<text name = "bc_new_contracts"		text= "Новые контракты"/>
+		<text name = "bc_clear_contracts"	text= "Очистить контракты"/>
 		<text name = "bc_detailsOff" 		text = "Details off"/>
 		<text name = "bc_detailsOn" 		text = "Details on"/>
 		

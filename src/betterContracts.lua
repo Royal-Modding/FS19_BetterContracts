@@ -12,7 +12,7 @@
 -- Changelog:
 --  v1.0.0.0    19.10.2020  initial by Royal-Modding
 --  v1.2.0.0    12.04.2021  release candidate RC-2
---  v1.2.1.0    22.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
+--  v1.2.1.0    24.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
 --=======================================================================================================
 InitRoyalUtility(Utils.getFilename("lib/utility/", g_currentModDirectory))
 InitRoyalMod(Utils.getFilename("lib/rmod/", g_currentModDirectory))
@@ -83,13 +83,6 @@ function BetterContracts:initialize()
         {"sortprof", g_i18n:getText("SC_sortProf")}, 
         {"sortpmin", g_i18n:getText("SC_sortpMin")}, 
     }
-
-    -- make my Gui texts global, needed for my Gui profilesd to work
-    local gTexts = self.gameEnv.g_i18n.texts
-    for k, v in pairs (g_i18n.texts) do
-        local prefix, _ = k:find("SC_", 1, true)
-        if prefix ~= nil then gTexts[k] = v; end
-    end
     self.gameEnv["g_betterContracts"] = self
 
     if g_modIsLoaded["FS19_RefreshContracts"] then
@@ -114,6 +107,9 @@ function BetterContracts:initialize()
     -- to allow multiple missions:
     MissionManager.hasFarmActiveMission =
     Utils.overwrittenFunction(nil, function() return false end)
+    if self.debug then 
+        addConsoleCommand("printBetterContracts", "Print detail stats for all available missions.", "consoleCommandPrint", self)
+    end
 end
 
 ---@param missionManager MissionManager
@@ -303,7 +299,17 @@ g_logManager:warning("'%s.Gui' failed to load! Supporting files are missing.", s
     self.my.npcbox:setVisible(false)
     self.my.sortbox:setVisible(false)
     self.initialized = true
-end;
+end
+
+function BetterContracts:onUpdate(dt)
+    local self = g_betterContracts
+    self.missionUpdTimer = self.missionUpdTimer + dt
+    if self.missionUpdTimer >= self.missionUpdTimeout then
+        self:refresh()
+        self.missionUpdTimer = 0
+    end
+end
+
 function BetterContracts:loadGUI(canLoad, guiPath)
     if canLoad then
         local fname
@@ -329,10 +335,14 @@ function BetterContracts:loadGUI(canLoad, guiPath)
         else
             canLoad = false
 g_logManager:error("[GuiLoader %s]  Required file '%s' could not be found!", self.modName, fname)
+=======
+            print(string.format("**Error: [GuiLoader %s]  Required file '%s' could not be found!", 
+                self.name, fname))
+>>>>>>> Stashed changes
         end
     end
     return canLoad
-end;
+end
 function BetterContracts:refresh()
     -- refresh our contract tables
     self.harvest, self.spread, self.simple, self.baling, self.transp = {}, {}, {}, {}, {}
@@ -342,15 +352,7 @@ function BetterContracts:refresh()
         self.IdToCont[m.id] = self:addMission(m) 
     end
     self.numCont = #self.miss
-end;
-function BetterContracts:update(dt)
-    local self = g_betterContracts
-    self.missionUpdTimer = self.missionUpdTimer + dt
-    if self.missionUpdTimer >= self.missionUpdTimeout then
-        self:refresh()
-        self.missionUpdTimer = 0
-    end
-end;
+end
 function BetterContracts:addMission(m)
     -- add mission m to the corresponding BetterContracts list 
     local cont = {}
@@ -359,7 +361,7 @@ function BetterContracts:addMission(m)
     if cat < 5 then
         dim = self:getDimensions(m.field, false)
         wid, hei = dim.width, dim.height
-        if wid > hei then wid, hei = hei, wid end;
+        if wid > hei then wid, hei = hei, wid end
 
         self.fieldToMission[m.field.fieldId] = m
         
@@ -423,7 +425,7 @@ function BetterContracts:addMission(m)
         table.insert(self.transp, cont)
     end
     return {cat, cont}
-end;
+end
 function MapHotspot:render(minX, maxX, minY, maxY, scale, drawText)
     if self:getIsVisible() and self.enabled then
         scale = scale or 1

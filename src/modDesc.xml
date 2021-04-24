@@ -113,34 +113,13 @@ Changelog ${version}:
 		<sourceFile filename="scripts/gui.lua" />
 		<sourceFile filename="scripts/userint.lua" />
 	</extraSourceFiles>
-    <l10n filenamePrefix="l10n/l10n">
-		<text name="bc_new_contracts">
-			<en>New Contracts</en>
-			<it>Nuovi Contratti</it>
-			<de>Vertragsliste aktualisieren</de>
-			<fr>Nouveaux contrats</fr>
-			<pl>Nowe kontrakty</pl>
-			<ru>Новые контракты</ru>
-		</text>
-		<text name="bc_clear_contracts">
-			<en>Clear Contracts</en>
-			<it>Pulisci lista</it>
-			<de>Vertragsliste leeren</de>
-			<fr>Supprimer les contrats non choisis</fr>
-			<pl>Wyczyść kontrakty</pl>
-			<ru>Очистить контракты</ru>
-		</text>
-	</l10n>
+    <l10n filenamePrefix="l10n/l10n"/>
     <actions>
         <action name="MENU_EXTRA_3" category="SYSTEM" axisType="HALF"  ignoreComboMask="true"/>
-        <action name="SC_Con"       category="PLAYER" axisType="HALF"  ignoreComboMask="false"/>
     </actions>  
     <inputBinding>
         <actionBinding action="MENU_EXTRA_3">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_s" index="1"/>
-        </actionBinding>
-        <actionBinding action="SC_Con" >
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_c" />
         </actionBinding>
     </inputBinding> 
 </modDesc>

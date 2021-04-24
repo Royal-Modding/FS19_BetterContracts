@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 --=======================================================================================================
 -- BetterContracts SCRIPT 
 --
@@ -6,7 +7,7 @@
 -- Changelog:
 --  v1.0.0.0	19.10.2020	initial by Royal-Modding
 --	v1.2.0.0	12.04.2021	release candidate RC-2
---  v1.2.1.0	22.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
+--  v1.2.1.0	24.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
 --=======================================================================================================
 
 -------------------- Gui enhance functions ---------------------------------------------------
@@ -38,8 +39,8 @@ function onFrameOpen(self, superFunc, ...)
 	    local button = inGameMenu.menuButton[1]:clone(parent)
 	    button.onClickCallback = detailsButtonCallback
 	    inGameMenu.detailsButton = button
-	    local text = g_i18n:getText("SeeContOn")
-	    if self.isOn then text = g_i18n:getText("SeeContOff") end
+	    local text = g_i18n:getText("bc_detailsOn")
+	    if self.isOn then text = g_i18n:getText("bc_detailsOff") end
 	    button:setText(text)
 	    button:setInputAction("MENU_EXTRA_3")
 	end
@@ -113,13 +114,13 @@ function detailsButtonCallback(inGameMenu)
 	frCon.npcFieldBox:setVisible(not self.isOn)
 
 	if self.isOn then
-		inGameMenu.detailsButton:setText(g_i18n:getText("SeeContOff"))
+		inGameMenu.detailsButton:setText(g_i18n:getText("bc_detailsOff"))
 		-- if we were sorted on last "off" click, then one of our sort buttons might still have focus 
 		if self.lastSort > 0 then
 			FocusManager:setFocus(frCon.contractsList, "top") -- remove focus from our sort buttton
 		end
 	else
-		inGameMenu.detailsButton:setText(g_i18n:getText("SeeContOn"))
+		inGameMenu.detailsButton:setText(g_i18n:getText("bc_detailsOn"))
 		-- "off" always resets sorting to default
 		if self.sort > 0 then
 			self:radioButton(0) 	-- reset all sort buttons
