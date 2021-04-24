@@ -275,8 +275,7 @@ function BetterContracts:onPostLoadMap(mapNode, mapFile)
 
     -- load my gui xmls
     if not self:loadGUI(true, self.directory.."gui/") then
-        print(string.format(
-        "** Info: - '%s.Gui' failed to load! Supporting files are missing.", self.name))
+g_logManager:warning("'%s.Gui' failed to load! Supporting files are missing.", self.name)
     end
 
     -- setup my display elements ------------------------------------------------------
