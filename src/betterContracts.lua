@@ -328,8 +328,7 @@ function BetterContracts:loadGUI(canLoad, guiPath)
             delete(xmlFile)
         else
             canLoad = false
-            print(string.format("**Error: [GuiLoader %s]  Required file '%s' could not be found!", 
-                self.modName, fname))
+g_logManager:error("[GuiLoader %s]  Required file '%s' could not be found!", self.modName, fname)
         end
     end
     return canLoad
