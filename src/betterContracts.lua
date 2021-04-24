@@ -271,7 +271,7 @@ function BetterContracts:onPostLoadMap(mapNode, mapFile)
 
     -- load my gui xmls
     if not self:loadGUI(true, self.directory.."gui/") then
-g_logManager:warning("'%s.Gui' failed to load! Supporting files are missing.", self.name)
+        g_logManager:warning("'%s.Gui' failed to load! Supporting files are missing.", self.name)
     end
 
     -- setup my display elements ------------------------------------------------------
@@ -324,8 +324,8 @@ function BetterContracts:loadGUI(canLoad, guiPath)
         fname = guiPath .. "SCGui.xml"
         if canLoad and fileExists(fname) then
             local xmlFile = loadXMLFile("Temp", fname)
-            local fbox = self.gameMenu.pageContracts.farmerBox
-            g_gui:loadGuiRec(xmlFile, "GUI", fbox, self.gameMenu.pageContracts)
+            local fbox = self.frCon.farmerBox
+            g_gui:loadGuiRec(xmlFile, "GUI", fbox, self.frCon)
             local layout = fbox:getDescendantById("layout")
             layout:invalidateLayout(true)       -- adjust sort buttons
             fbox:applyScreenAlignment()
@@ -334,11 +334,7 @@ function BetterContracts:loadGUI(canLoad, guiPath)
             delete(xmlFile)
         else
             canLoad = false
-g_logManager:error("[GuiLoader %s]  Required file '%s' could not be found!", self.modName, fname)
-=======
-            print(string.format("**Error: [GuiLoader %s]  Required file '%s' could not be found!", 
-                self.name, fname))
->>>>>>> Stashed changes
+            g_logManager:error("[GuiLoader %s]  Required file '%s' could not be found!", self.name, fname)
         end
     end
     return canLoad
