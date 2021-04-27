@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+	<texts>
+		<!-- Gui Buttons -->
+		<text name = "bc_new_contracts"		text= "Nouveaux contrats"/>
+		<text name = "bc_clear_contracts"	text= "Supprimer les contrats non choisis"/>
+		<text name = "bc_detailsOff" 		text = "Details arret"/>
+		<text name = "bc_detailsOn" 		text = "Details marche"/>
+		
+		<!-- Display texts -->
+		<text name = "SC_widhei" 	text = "Max width/ height:"/>
+		<text name = "SC_worktim" 	text = "Estimated time:"/>
+		<text name = "SC_price" 	text = "Price:"/>
+		<text name = "SC_profpmin"	text = "Profit/min:"/>
+		<text name = "SC_sort" 		text = "Sort"/>
+
+		<text name = "SC_field" 	text = "Field %d / %s"/>
+		<text name = "SC_worked" 	text = "Worked field:"/>
+		<text name = "SC_delivered" text = "Delivered:"/>
+		<text name = "SC_deliver" 	text = "Must deliver:"/>
+		<text name = "SC_keep" 		text = "Can keep:"/>
+		<text name = "SC_profit" 	text = "Profit from harvest:"/>
+		<text name = "SC_usage" 	text = "Usage:"/>
+		<text name = "SC_cost" 		text = "Cost of material:"/>
+		<text name = "SC_togo" 		text = "To go:"/>
+
+		<!-- Sort button help text -->
+		<text name = "SC_sortCat"  text = "mission type/ fieldnumber"/>
+		<text name = "SC_sortProf" text = "net profit"/>
+		<text name = "SC_sortpMin" text = "profit per minute"/>
+	</texts>
+</l10n>
