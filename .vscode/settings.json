@@ -2,5 +2,9 @@
     "files.exclude": {
         "release": true,
         "tmp": true
-    }
+    },
+    "Lua.diagnostics.globals": [
+        "r_debug_r",
+        "g_seasons"
+    ]
 }

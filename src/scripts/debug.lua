@@ -1,9 +1,9 @@
 ---@diagnostic disable: lowercase-global
 --=======================================================================================================
--- BetterContracts SCRIPT 
+-- BetterContracts SCRIPT
 --
 -- Purpose:		Enhance ingame contracts menu.
--- Author:		Royal-Modding / Mmtrx		
+-- Author:		Royal-Modding / Mmtrx
 -- Changelog:
 --  v1.0.0.0	19.10.2020	initial by Royal-Modding
 --	v1.2.0.0	12.04.2021	release candidate RC-2
@@ -12,82 +12,101 @@
 
 -------------------- development helper functions ---------------------------------------------------
 function BetterContracts:consoleCommandPrint()
-    actionprint()
+	actionprint()
 end
 function loadSettings()
 	--load settings from modsSettings folder
 	local key = "SeeCont"
 	local self = g_betterContracts
-	local f = g_betterContracts.modsSettings .. 'SeeCont.xml'
+	local f = g_betterContracts.modsSettings .. "SeeCont.xml"
 	if fileExists(f) then
-		local xmlFile = loadXMLFile("SeeCont", f, key);
-		self.dispSize = 	Utils.getNoNil(getXMLInt(xmlFile, key.."#size"), 1);			
-		self.debug = 	   	Utils.getNoNil(getXMLBool(xmlFile, key.."#debug"), false);			
-		delete(xmlFile);
+		local xmlFile = loadXMLFile("SeeCont", f, key)
+		self.dispSize = Utils.getNoNil(getXMLInt(xmlFile, key .. "#size"), 1)
+		self.debug = Utils.getNoNil(getXMLBool(xmlFile, key .. "#debug"), false)
+		delete(xmlFile)
 	end
 	if self.debug then
-		print(string.format("read settings from %s: size = %d, debug = %s", 
-			f,self.dispSize,self.debug))
+		print(string.format("read settings from %s: size = %d, debug = %s", f, self.dispSize, self.debug))
 	end
 end
 function saveSettings()
 	local key = "SeeCont"
-	local f = g_betterContracts.modsSettings .. 'SeeCont.xml'
-	local xmlFile = createXMLFile("SeeCont", f, key);
-	setXMLFloat(xmlFile, key .. "#turnTime",	g_betterContracts.turnTime);
-	setXMLBool(xmlFile, key .. 	"#debug",		g_betterContracts.debug);
-	saveXMLFile(xmlFile);
-	delete(xmlFile);
+	local f = g_betterContracts.modsSettings .. "SeeCont.xml"
+	local xmlFile = createXMLFile("SeeCont", f, key)
+	setXMLFloat(xmlFile, key .. "#turnTime", g_betterContracts.turnTime)
+	setXMLBool(xmlFile, key .. "#debug", g_betterContracts.debug)
+	saveXMLFile(xmlFile)
+	delete(xmlFile)
 	if g_betterContracts.debug then
-		print("** BetterContracts:saved settings to " ..f);
+		print("** BetterContracts:saved settings to " .. f)
 	end
 end
 function actionprint()
 	-- print table of current missions
-	local sep = string.rep("-",45)
+	local sep = string.rep("-", 45)
 	local self = g_betterContracts
 	-- initialize contracts tables :
 	self:refresh()
 
 	-- harvest missions:
-	print(sep.."Harvest Mis"..sep)
-	print(string.format("%2s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s",
-		"Nr","Type","Field","ha","reward","duration", "Filltype","deliver","keep","price","Total","perMinute"))
-	for i,c in ipairs(self.harvest) do
+	print(sep .. "Harvest Mis" .. sep)
+	print(string.format("%2s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s", "Nr", "Type", "Field", "ha", "reward", "duration", "Filltype", "deliver", "keep", "price", "Total", "perMinute"))
+	for i, c in ipairs(self.harvest) do
 		local m = c.miss
-		print(string.format("%2s %10s %10s %10.2f %10s %10s %10s %10d %10d %10d %10s %10s",
-		i, m.type.name, m.field.fieldId, m.field.fieldArea, g_i18n:formatNumber(m.reward,0),
-		MathUtil.round(c.worktime/60), c.ftype, c.deliver, c.keep, c.price, g_i18n:formatNumber(c.profit),
-		g_i18n:formatNumber(c.permin) ))
+		print(
+			string.format(
+				"%2s %10s %10s %10.2f %10s %10s %10s %10d %10d %10d %10s %10s",
+				i,
+				m.type.name,
+				m.field.fieldId,
+				m.field.fieldArea,
+				g_i18n:formatNumber(m.reward, 0),
+				MathUtil.round(c.worktime / 60),
+				c.ftype,
+				c.deliver,
+				c.keep,
+				c.price,
+				g_i18n:formatNumber(c.profit),
+				g_i18n:formatNumber(c.permin)
+			)
+		)
 	end
 	-- spread missions:
-	print(sep.."Spread Miss"..sep)
-	print(string.format("%2s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s",
-		"Nr","Type","Field","ha","reward","duration","Filltype","usage","price","cost","Total","perMinute"))
+	print(sep .. "Spread Miss" .. sep)
+	print(string.format("%2s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s", "Nr", "Type", "Field", "ha", "reward", "duration", "Filltype", "usage", "price", "cost", "Total", "perMinute"))
 
-	for i,c in ipairs(self.spread) do
+	for i, c in ipairs(self.spread) do
 		local m = c.miss
 		local j = c.bestj
-		print(string.format("%2s %10s %10s %10.2f %10s %10s %10.10s %10d %10s %10d %10s %10s",
-		i, m.type.name, m.field.fieldId, m.field.fieldArea, g_i18n:formatNumber(m.reward),
-		MathUtil.round(c.worktime[j]/60), c.ftype, c.usage[j], c.price[j], c.cost[j], g_i18n:formatNumber(c.profit), 
-		g_i18n:formatNumber(c.profit/c.worktime[j]*60) ))
+		print(
+			string.format(
+				"%2s %10s %10s %10.2f %10s %10s %10.10s %10d %10s %10d %10s %10s",
+				i,
+				m.type.name,
+				m.field.fieldId,
+				m.field.fieldArea,
+				g_i18n:formatNumber(m.reward),
+				MathUtil.round(c.worktime[j] / 60),
+				c.ftype,
+				c.usage[j],
+				c.price[j],
+				c.cost[j],
+				g_i18n:formatNumber(c.profit),
+				g_i18n:formatNumber(c.profit / c.worktime[j] * 60)
+			)
+		)
 		if c.maxj > 1 then
-			print(string.format("%57s %10s %10d %10s %10d %10s",
-			MathUtil.round(c.worktime[2]/60), "liquidFert", c.usage[2], c.price[2], c.cost[2], g_i18n:formatNumber(m.reward+c.cost[2])))
+			print(string.format("%57s %10s %10d %10s %10d %10s", MathUtil.round(c.worktime[2] / 60), "liquidFert", c.usage[2], c.price[2], c.cost[2], g_i18n:formatNumber(m.reward + c.cost[2])))
 		end
 		if c.maxj == 3 then
-			print(string.format("%57s %10s %10d %10s %10d %10s",
-			MathUtil.round(c.worktime[2]/60), "vehicle", c.usage[3], c.price[3], c.cost[3], g_i18n:formatNumber(m.reward+c.cost[3])))
+			print(string.format("%57s %10s %10d %10s %10d %10s", MathUtil.round(c.worktime[2] / 60), "vehicle", c.usage[3], c.price[3], c.cost[3], g_i18n:formatNumber(m.reward + c.cost[3])))
 		end
 	end
 	-- simple missions:
 	if #self.simple > 0 then
-		print(sep.."Simple Miss"..sep)
-		for i,c in ipairs(self.simple) do
-			print(string.format("%2s %10s %10s %10.2f %10d %10s %54s",
-				i, c.miss.type.name, c.miss.field.fieldId, c.miss.field.fieldArea, 
-				c.miss.reward, g_i18n:formatMinutes(c.worktime), g_i18n:formatNumber(c.miss.reward, 0)))
+		print(sep .. "Simple Miss" .. sep)
+		for i, c in ipairs(self.simple) do
+			print(string.format("%2s %10s %10s %10.2f %10d %10s %54s", i, c.miss.type.name, c.miss.field.fieldId, c.miss.field.fieldArea, c.miss.reward, g_i18n:formatMinutes(c.worktime), g_i18n:formatNumber(c.miss.reward, 0)))
 		end
 	end
 end

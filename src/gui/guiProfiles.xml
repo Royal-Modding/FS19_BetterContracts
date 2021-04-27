@@ -1,26 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--=====================================================================================================
--- BetterContracts GUI PROFILES
---
--- Purpose:     Enhance ingame contracts menu.
--- Author:      Mmtrx       
--- Changelog:
---  v0.1        17.03.2021  initial beta
---  v1.0.0      20.04.2021  submit for release 
---=======================================================================================================
--->
+    BetterContracts GUI PROFILES
+    Purpose:     Enhance ingame contracts menu.
+    Author:      Mmtrx       
+    Changelog:
+     v0.1        17.03.2021  initial beta
+     v1.0.0      20.04.2021  submit for release 
+=======================================================================================================-->
+
 <GUIProfiles>
     <Presets>
-        <Preset name="len398" value="398px 40px"/>
-        <Preset name="colorMainUI" value="0.9910 0.3865 0.0100 1"/>
-        <Preset name="colorGlass" value="0.718 0.716 0.715 0.04"/>
-        <Preset name="colorWhite" value="1 1 1 1"/>
+        <Preset name="len398" value="398px 40px" />
+        <Preset name="colorMainUI" value="0.9910 0.3865 0.0100 1" />
+        <Preset name="colorGlass" value="0.718 0.716 0.715 0.04" />
+        <Preset name="colorWhite" value="1 1 1 1" />
     </Presets>
     <Traits>
         <Trait name="buttonActive">
-            <Value name="iconColor" value="$preset_colorMainUI"/>
-            <Value name="iconHighlightedColor" value="$preset_colorWhite"/>
-            <Value name="iconFocusedColor" value="$preset_colorMainUI"/>
+            <Value name="iconColor" value="$preset_colorMainUI" />
+            <Value name="iconHighlightedColor" value="$preset_colorWhite" />
+            <Value name="iconFocusedColor" value="$preset_colorMainUI" />
         </Trait>
     </Traits>
 

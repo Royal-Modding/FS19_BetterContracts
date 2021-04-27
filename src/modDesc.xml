@@ -4,7 +4,6 @@
 	<version>${version}</version>
 	<title>
 		<en>Better Contracts</en>
-		<fr>Gestion des contrats</fr>
 	</title>
 	<description>
 		<en>
@@ -79,7 +78,7 @@ Changelog ${version}:
 ]]>
 		</fr>
 		<ru>
-		<![CDATA[
+			<![CDATA[
 Этот мод помогает улучшить контрактную систему как в одиночной, так и в многопользовательской игре.
 
 - Максимальное количество и количество генерируемых миссий теперь автоматически настраиваются в зависимости количества полей на карте.
@@ -113,13 +112,13 @@ Changelog ${version}:
 		<sourceFile filename="scripts/gui.lua" />
 		<sourceFile filename="scripts/userint.lua" />
 	</extraSourceFiles>
-    <l10n filenamePrefix="l10n/l10n"/>
-    <actions>
-        <action name="MENU_EXTRA_3" category="SYSTEM" axisType="HALF"  ignoreComboMask="true"/>
-    </actions>  
-    <inputBinding>
-        <actionBinding action="MENU_EXTRA_3">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_s" index="1"/>
-        </actionBinding>
-    </inputBinding> 
+	<l10n filenamePrefix="l10n/l10n" />
+	<actions>
+		<action name="MENU_EXTRA_3" category="SYSTEM" axisType="HALF" ignoreComboMask="true" />
+	</actions>
+	<inputBinding>
+		<actionBinding action="MENU_EXTRA_3">
+			<binding device="KB_MOUSE_DEFAULT" input="KEY_s" index="1" />
+		</actionBinding>
+	</inputBinding>
 </modDesc>
