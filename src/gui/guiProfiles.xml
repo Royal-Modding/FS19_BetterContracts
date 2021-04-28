@@ -23,6 +23,22 @@
         </Trait>
     </Traits>
 
+    <!-- Display Text  - - - - - - - - - - - - - - - - - - - - - -  -->
+    <Profile name="betterContractsLeft" extends="textDefault">
+        <Value name="screenAlign" value="topLeft" />
+        <Value name="positionOrigin" value="topLeft" />
+        <Value name="size" value="200px 30px" />
+        <Value name="textSize" value="14px"/>
+    </Profile>
+    <Profile name="betterContractsRight" extends="textDefault" >
+        <Value name="screenAlign" value="topRight" />
+        <Value name="positionOrigin" value="topRight" />
+        <Value name="size" value="200px 30px" />
+        <Value name="textColor" value="$preset_colorMainUI" />
+        <Value name="textAlignment" value="right" />
+        <Value name="textSize" value="14px"/>
+    </Profile>
+
     <!-- Sortbox Buttons - - - - - - - - - - - - - - - - - - - - -  -->
     <Profile name="SeeContsortCat" extends="buttonBase">
         <Value name="handleFocus" value="true" />

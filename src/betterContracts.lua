@@ -82,6 +82,8 @@ function BetterContracts:initialize()
         {"sortprof", g_i18n:getText("SC_sortProf")},
         {"sortpmin", g_i18n:getText("SC_sortpMin")}
     }
+    self.modsSettings= string.sub(g_modsDirectory,1,-2) .. "Settings/"
+
     self.gameEnv["g_betterContracts"] = self
 
     --- This is only needed to let intellisense recognize g_betterContracts as BetterContracts instance

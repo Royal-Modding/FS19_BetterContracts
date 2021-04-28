@@ -11,24 +11,24 @@
 <GUI name="npcDetails">
 	<GuiElement type="empty" id="npcbox" size="297px 300px" position="0px 90px" screenAlign="bottomCenter" positionOrigin="bottomCenter" hasFrame="true" debugEnabled="false">
 		<!-- left column -->
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" id="field" position="5px 0px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" position="5px -34px" text="$l10n_SC_widhei" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" id="line3" position="5px -68px" text="$l10n_SC_worktim" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" id="line4a" position="5px -102px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" id="line4b" position="5px -136px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" id="line5" position="5px -170px" text="$l10n_SC_price" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" id="line6" position="5px -204px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemField" position="5px -238px" text="$l10n_SC_profpmin" />
+		<GuiElement type="text" profile="betterContractsLeft" id="field" position="5px 0px" />
+		<GuiElement type="text" profile="betterContractsLeft" position="5px -34px" text="$l10n_SC_widhei" />
+		<GuiElement type="text" profile="betterContractsLeft" id="line3" position="5px -68px" text="$l10n_SC_worktim" />
+		<GuiElement type="text" profile="betterContractsLeft" id="line4a" position="5px -102px" />
+		<GuiElement type="text" profile="betterContractsLeft" id="line4b" position="5px -136px" />
+		<GuiElement type="text" profile="betterContractsLeft" id="line5" position="5px -170px" text="$l10n_SC_price" />
+		<GuiElement type="text" profile="betterContractsLeft" id="line6" position="5px -204px" />
+		<GuiElement type="text" profile="betterContractsLeft" position="5px -238px" text="$l10n_SC_profpmin" />
 
 		<!-- right column -->
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="filltype" position="-10px 0px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="dimen" position="-10px -34px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="etime" position="-10px -68px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu4a" position="-10px -102px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu4b" position="-10px -136px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="price" position="-10px -170px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu6" position="-10px -204px" />
-		<GuiElement type="text" profile="ingameMenuContractsListItemReward" id="valu7" position="-10px -238px" />
+		<GuiElement type="text" profile="betterContractsRight" id="filltype" position="-10px 0px" />
+		<GuiElement type="text" profile="betterContractsRight" id="dimen" position="-10px -34px" />
+		<GuiElement type="text" profile="betterContractsRight" id="etime" position="-10px -68px" />
+		<GuiElement type="text" profile="betterContractsRight" id="valu4a" position="-10px -102px" />
+		<GuiElement type="text" profile="betterContractsRight" id="valu4b" position="-10px -136px" />
+		<GuiElement type="text" profile="betterContractsRight" id="price" position="-10px -170px" />
+		<GuiElement type="text" profile="betterContractsRight" id="valu6" position="-10px -204px" />
+		<GuiElement type="text" profile="betterContractsRight" id="valu7" position="-10px -238px" />
 	</GuiElement>
 
 	<!-- Sort buttons -->
@@ -38,7 +38,7 @@
 			<GuiElement type="button" profile="SeeContsortProf" id="sortprof" />
 			<GuiElement type="button" profile="SeeContsortpMin" id="sortpmin" />
 		</GuiElement>
-		<GuiElement type="text" profile="textDefault" position="0px 45px" textOffset="10px 5px" text="$l10n_SC_sort" />
-		<GuiElement type="text" profile="ingameMenuHelpRowText" id="helpsort" size="220px 40px" position="60px 16px" text="" />
+		<GuiElement type="text" profile="textDefault" position="0px 45px" textOffset="5px 5px" text="$l10n_SC_sort" debugEnabled="false"/>
+		<GuiElement type="text" profile="ingameMenuHelpRowText" id="helpsort" size="220px 40px" position="75px 16px" text="" debugEnabled="false"/>
 	</GuiElement>
 </GUI>
