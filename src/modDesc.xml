@@ -59,18 +59,24 @@ Changelog ${version}:
 		<fr>
 			<![CDATA[
 Ce mod permet d'améliorer le système de contrat, à la fois en solo et multijoueur.
+"Devrais-je accepter ces 3 missions de fertilisation ou plutôt la récolte de 2.3 ha de pommes de terre ?" "Combien d'engrais me faudra-t-il pour cette mission et à quel prix ?" Si vous vous posez toutes ces questions, ce mod vous donnera toutes les informations sur les contrats pour y répondre.
 
 - Le nombre maximum et la quantité de contrat générés sont désormais automatiquement ajustés au nombre de champs de la carte.
  
 - Vous pouvez désormais générer de nouveaux contrats via le bouton "Nouveaux contrats" et même effacer ceux que vous n'avez pas activé depuis l'écran de gestion des contrats.
 
 - Les contrats sont désormais triés par type et numéro de champ pour vous permettre de trouver plus facilement celui que vous désirez.
+
+- Affichage des détails supplémentaires des contrats directement à l'aide d'un raccourci clavier depuis le menu des contrats
  
+- Tri des contrats par type, champs, bénéfice attendu et profit par minute
+
 - Vous pouvez activer plusieurs contrats à la fois.
  
 - L'indicateur de numéro de champ (sur la mini-carte) des champs sur lesquels vous allez activer les contrats, commencera à clignoter pour vous aider à déterminer où vous devez aller.
 
 Changelog ${version}:
+- Informations supplémentaires pour les contrats : En plus du type de contrat et du numéro+taille du champ, vous trouverez maintenant les coûts estimés du contrat (engrais, herbicide, semence), le surplus de récolte ou de pressage, le calcul automatique du profit net généré. Il y a même l'affichage du temps que vous passerez à réaliser le contrat avec le matériel proposé en location avec celui-ci.
 - Ajout de la prévention des conflits avec d'autres mods
 - Ajout du tri de la liste des contrats
 - Ajout de nombreux nouveaux combos de véhicules pour les contrats
