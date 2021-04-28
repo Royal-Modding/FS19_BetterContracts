@@ -10,18 +10,18 @@
 		<!-- Display texts -->
 		<text name="SC_widhei" text="Макс. ширина/длина:" />
 		<text name="SC_worktim" text="Предполагаемое время:" />
-		<text name="SC_price" text="Цена:" />
+		<text name="SC_price" text="Цена/1000л:" />
 		<text name="SC_profpmin" text="Прибыль/мин:" />
 		<text name="SC_sort" text="Сорт." />
 
 		<text name="SC_field" text="Поле %d / %s" />
-		<text name="SC_worked" text="Убрано:" />
+		<text name="SC_worked" text="Выполнено:" />
 		<text name="SC_delivered" text="Доставлено:" />
-		<text name="SC_deliver" text="Необходимо доставить:" />
+		<text name="SC_deliver" text="Необходимо ещё доставить:" />
 		<text name="SC_keep" text="Можно оставить:" />
 		<text name="SC_profit" text="Прибыль от урожая:" />
 		<text name="SC_usage" text="Расходовать:" />
-		<text name="SC_cost" text="Цена материала:" />
+		<text name="SC_cost" text="Стоимость материала:" />
 		<text name="SC_togo" text="Необходимо доставить:" />
 
 		<!-- Sort button help text -->
