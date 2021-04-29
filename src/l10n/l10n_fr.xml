@@ -2,17 +2,17 @@
 <l10n>
 	<texts>
 		<!-- Gui Buttons -->
-		<text name="bc_new_contracts" text="Nouveaux contrats" />
-		<text name="bc_clear_contracts" text="Suppression contrats non actifs" />
-		<text name="bc_detailsOff" text="Masquer les détails" />
-		<text name="bc_detailsOn" text="Afficher les détails" />
+		<text name="bc_new_contracts" text="Rafraîchir" />
+		<text name="bc_clear_contracts" text="Purger" />
+		<text name="bc_detailsOff" text="Sans détails" />
+		<text name="bc_detailsOn" text="Avec détails" />
 
 		<!-- Display texts -->
 		<text name="SC_widhei" text="Largeur,Longueur (max):" />
 		<text name="SC_worktim" text="Temps estimé:" />
 		<text name="SC_price" text="Prix:" />
 		<text name="SC_profpmin" text="Profit/min:" />
-		<text name="SC_sort" text="Type" />
+		<text name="SC_sort" text="Tri" />
 
 		<text name="SC_field" text="Champ %d / %s" />
 		<text name="SC_worked" text="Champ travaillé:" />
@@ -25,7 +25,7 @@
 		<text name="SC_togo" text="A venir:" />
 
 		<!-- Sort button help text -->
-		<text name="SC_sortCat" text="Type mission / champ" />
+		<text name="SC_sortCat" text="Type / champ" />
 		<text name="SC_sortProf" text="Profit net" />
 		<text name="SC_sortpMin" text="profit par minute" />
 	</texts>
