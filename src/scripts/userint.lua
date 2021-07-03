@@ -82,10 +82,15 @@ function BetterContracts:getFromVehicle(cat, m)
 	local vec, vtype, wwidth, speed
 	local spr = "n/a" -- sprayer name
 
+	if m.vehiclesToLoad == nil then 
+		g_logManager:error("**[%s] - contract '%s field %s' has no vehicles", 
+			self.name, m.type.name, m.field.fieldId)
+		return 0
+	end	
 	for _, v in ipairs(m.vehiclesToLoad) do
 		vec = g_storeManager.xmlFilenameToItem[string.lower(v.filename)]
 		if vec == nil then
-			print(string.format("**Error BetterContracts - could not get store item for '%s'", v.filename))
+			g_logManager:error("**[%s] - could not get store item for '%s'",self.name,v.filename)
 			return 0
 		end
 		table.insert(vehicles, vec)

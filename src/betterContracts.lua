@@ -11,12 +11,11 @@
 -- Author:      Royal-Modding / Mmtrx
 -- Changelog:
 --  v1.0.0.0    19.10.2020  initial by Royal-Modding
---  v1.2.0.0    12.04.2021  release candidate RC-2
---  v1.2.1.0    24.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
+--  v1.1.0.0    12.04.2021  release candidate RC-2
+--  v1.1.0.3    24.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
 --=======================================================================================================
 InitRoyalUtility(Utils.getFilename("lib/utility/", g_currentModDirectory))
 InitRoyalMod(Utils.getFilename("lib/rmod/", g_currentModDirectory))
-
 SC = {
     FERTILIZER = 1, -- prices index
     LIQUIDFERT = 2,
@@ -374,7 +373,9 @@ function BetterContracts:addMission(m)
         if wwidth ~= nil and wwidth > 0 then
             _, dura = self:estWorktime(wid, hei, wwidth, speed)
         elseif cat ~= 2 then
-            print("**Error BetterContracts:addMission() - getFromVehicle() returned 0")
+            g_logManager:warning("[%s]:addMission(): problem with vehicles for contract '%s field %s'.", 
+                self.name, m.type.name, m.field.fieldId)
+            g_logManager:warning("      Please check missions.xml of current savegame.")
             dura = 1
         end
     end
