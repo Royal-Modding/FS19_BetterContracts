@@ -16,6 +16,7 @@
 --=======================================================================================================
 InitRoyalUtility(Utils.getFilename("lib/utility/", g_currentModDirectory))
 InitRoyalMod(Utils.getFilename("lib/rmod/", g_currentModDirectory))
+r_debug_r = true
 SC = {
     FERTILIZER = 1, -- prices index
     LIQUIDFERT = 2,
@@ -380,6 +381,11 @@ function BetterContracts:addMission(m)
         end
     end
     if cat == 1 then
+        if m.expectedLiters == nil then 
+            g_logManager:warning("[%s]:addMission(): contract '%s field %s ft %s' has no expectedLiters.", 
+                self.name, m.type.name, m.field.fieldId, m.fillType)
+            m.expectedLiters = 0 
+        end 
         local keep = math.floor(m.expectedLiters * 0.265)
         local price = m.sellPoint:getEffectiveFillTypePrice(m.fillType)
         local profit = m.reward + keep * price
