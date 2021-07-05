@@ -83,15 +83,15 @@ function BetterContracts:getFromVehicle(cat, m)
 	local spr = "n/a" -- sprayer name
 
 	if m.vehiclesToLoad == nil then 
-		g_logManager:error("**[%s] - contract '%s field %s' has no vehicles", 
+		g_logManager:devWarning("**[%s] - contract '%s field %s' has no vehicles", 
 			self.name, m.type.name, m.field.fieldId)
-		return 0
+		return false 
 	end	
 	for _, v in ipairs(m.vehiclesToLoad) do
 		vec = g_storeManager.xmlFilenameToItem[string.lower(v.filename)]
 		if vec == nil then
-			g_logManager:error("**[%s] - could not get store item for '%s'",self.name,v.filename)
-			return 0
+			g_logManager:devWarning("**[%s] - could not get store item for '%s'",self.name,v.filename)
+			return false 
 		end
 		table.insert(vehicles, vec)
 	end
@@ -118,7 +118,7 @@ function BetterContracts:getFromVehicle(cat, m)
 				if wwidth == nil then
 					wwidth = math.max(unpack(vec.specs.workingWidthVar)) -- e.g. BREDAL K165 has multiple
 					if wwidth == nil then
-						print(string.format("**Error BetterContracts:getFromVehicle() - could not get workingWidth for '%s'", spr))
+						g_logManager:devWarning("**[%s]:getFromVehicle() - could not get workingWidth for '%s'", self.name,spr)
 					end
 				end
 				break
@@ -128,12 +128,13 @@ function BetterContracts:getFromVehicle(cat, m)
 	-- if no spreader / sprayer in a spreadmission (e.g. a manure vehicle offered)
 	if wwidth == nil then
 		speed, wwidth = 0, 0
-		if self.debug and cat ~= 2 then
-			print(string.format("--warning BetterContracts:getFromVehicle() could not find appropriate vehicle in mission %s. Last vehicle: %s %s", m.id, vtype, spr))
+		if cat ~= 2 then
+			g_logManager:warning("[%s]:getFromVehicle() could not find appropriate vehicle in mission %s. Last vehicle: %s %s", 
+				self.name, m.id, vtype, spr)
 		end
 	end
 	--print(string.format("%s %s - speed %.1f, width %.1f", vtype, spr,speed,wwidth))
-	return tonumber(wwidth), tonumber(speed), string.lower(vtype), spr
+	return true, tonumber(wwidth), tonumber(speed), string.lower(vtype), spr
 end
 function BetterContracts:spreadMission(m, wid, hei, vWorkwidth, vSpeed)
 	-- analyze and estimate time/ usage for a fertilize / spray / sow mission

@@ -56,17 +56,17 @@ function BetterContracts:initialize()
     self.turnTime = 5.0 -- estimated seconds per turn at end of each lane
     self.events = {}
     self.initialized = false
-    --  Kuhn Axis402    Hardi Mega      Väderst Rapid   Väderst Tempo   mission
-    --  def spreader    def sprayer     def sower       def planter     vehicle
-    self.SPEEDLIMS = {20, 12, 18, 15, 0} -- SPEEDLIMIT
-    self.WORKWIDTH = {24, 24, 6, 6, 0} -- WORKWIDTH
+    --  Kuhn Axis402, Hardi Mega, Väderst Rapid, Väderst Tempo, mission vec, ...
+    --  defaults: spreader, sprayer, sower, planter, empty, harvest, plow, mow
+    self.SPEEDLIMS = {20, 12, 18, 15, 0, 10, 10, 20} -- SPEEDLIMIT
+    self.WORKWIDTH = {24, 24, 6, 6, 0, 9, 6, 9} -- WORKWIDTH
 
-    self.typeToCat = {4, 3, 3, 2, 1, 3, 2, 2, 5} -- mission.type to self category: harvest, spread, simple, mow, transport
-    self.harvest = {} -- mow and harvest missions
-    self.spread = {} -- sow, spray, fertilize
-    self.simple = {} -- plow, cultivate, weed
-    self.transp = {} -- transport
-    self.baling = {} -- mow/ bale
+    self.typeToCat = {4, 3, 3, 2, 1, 3, 2, 2, 5, 5} -- mission.type to self category: harvest, spread, simple, mow, transport
+    self.harvest = {} -- harvest missions       1
+    self.spread = {} -- sow, spray, fertilize   2
+    self.simple = {} -- plow, cultivate, weed   3
+    self.baling = {} -- mow/ bale               4
+    self.transp = {} -- transport, snow         5
     self.IdToCont = {} -- to find a contract from its mission id
     self.fieldToMission = {} -- to find a contract from its field number
     self.catHarvest = "BEETHARVESTING CORNHEADERS COTTONVEHICLES CUTTERS POTATOHARVESTING POTATOVEHICLES SUGARCANEHARVESTING"
@@ -179,6 +179,9 @@ function BetterContracts:loadExtraMissionVehicles_groups(xmlFile, baseKey, missi
             local fieldSize = getXMLString(xmlFile, groupKey .. "#fieldSize") or "missingFieldSize"
             group.variant = getXMLString(xmlFile, groupKey .. "#variant")
             group.rewardScale = getXMLFloat(xmlFile, groupKey .. "#rewardScale") or 1
+            if g_missionManager.missionVehicles[missionType][fieldSize] == nil then 
+                g_missionManager.missionVehicles[missionType][fieldSize] = {}
+            end 
             group.identifier = #g_missionManager.missionVehicles[missionType][fieldSize] + 1
             group.vehicles = self:loadExtraMissionVehicles_vehicles(xmlFile, groupKey, modDirectory)
             table.insert(g_missionManager.missionVehicles[missionType][fieldSize], group)
@@ -358,7 +361,7 @@ end
 function BetterContracts:addMission(m)
     -- add mission m to the corresponding BetterContracts list
     local cont = {}
-    local dim, wid, hei, dura, wwidth, speed, vtype, vname
+    local dim, wid, hei, dura, wwidth, speed, vtype, vname, vfound
     local cat = self.typeToCat[m.type.typeId]
     if cat < 5 then
         dim = self:getDimensions(m.field, false)
@@ -369,23 +372,25 @@ function BetterContracts:addMission(m)
 
         self.fieldToMission[m.field.fieldId] = m
 
-        wwidth, speed, vtype, vname = self:getFromVehicle(cat, m)
+        vfound, wwidth, speed, vtype, vname = self:getFromVehicle(cat, m)
         -- estimate mission duration:
-        if wwidth ~= nil and wwidth > 0 then
+        if vfound and wwidth > 0  then
             _, dura = self:estWorktime(wid, hei, wwidth, speed)
-        elseif cat ~= 2 then
-            g_logManager:warning("[%s]:addMission(): problem with vehicles for contract '%s field %s'.", 
+        elseif not vfound or cat~=2 then
+            g_logManager:devWarning("[%s]:addMission(): problem with vehicles for contract '%s field %s'.", 
                 self.name, m.type.name, m.field.fieldId)
-            g_logManager:warning("      Please check missions.xml of current savegame.")
-            dura = 1
+            local cat1 = cat == 1 and 1 or 0 
+            -- use default width and speed values :
+            -- cat/index: 1/6, 3/7, 4/8
+            _,dura = self:estWorktime(wid, hei, self.WORKWIDTH[4+cat+cat1], self.SPEEDLIMS[4+cat+cat1])
         end
-    end
-    if cat == 1 then
-        if m.expectedLiters == nil then 
-            g_logManager:warning("[%s]:addMission(): contract '%s field %s ft %s' has no expectedLiters.", 
+        if (cat==1 or cat==4) and m.expectedLiters == nil then 
+            g_logManager:devWarning("[%s]:addMission(): contract '%s field %s ft %s' has no expectedLiters.", 
                 self.name, m.type.name, m.field.fieldId, m.fillType)
             m.expectedLiters = 0 
         end 
+    end
+    if cat == 1 then
         local keep = math.floor(m.expectedLiters * 0.265)
         local price = m.sellPoint:getEffectiveFillTypePrice(m.fillType)
         local profit = m.reward + keep * price
