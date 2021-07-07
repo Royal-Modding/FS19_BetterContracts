@@ -13,10 +13,11 @@
 --  v1.0.0.0    19.10.2020  initial by Royal-Modding
 --  v1.1.0.0    12.04.2021  release candidate RC-2
 --  v1.1.0.3    24.04.2021  (Mmtrx) gui enhancements: addtl details, sort buttons
+--  v1.1.0.4    07.07.2021  (Mmtrx) add user-defined missionVehicles.xml, allow missions with no vehicles
 --=======================================================================================================
 InitRoyalUtility(Utils.getFilename("lib/utility/", g_currentModDirectory))
 InitRoyalMod(Utils.getFilename("lib/rmod/", g_currentModDirectory))
-r_debug_r = true
+r_debug_r = false
 SC = {
     FERTILIZER = 1, -- prices index
     LIQUIDFERT = 2,
@@ -116,7 +117,6 @@ function BetterContracts:initialize()
         addConsoleCommand("printBetterContracts", "Print detail stats for all available missions.", "consoleCommandPrint", self)
     end
 end
-
 ---@param missionManager MissionManager
 ---@param superFunc function
 ---@return boolean
@@ -127,14 +127,37 @@ function BetterContracts.loadMissionVehicles(missionManager, superFunc, ...)
             g_logManager:devInfo("[%s] %s map detected, loading mission vehicles created by %s", self.name, "FS19_ThueringerHoehe", "Lahmi")
             missionManager.missionVehicles = {}
             self:loadExtraMissionVehicles(self.directory .. "missionVehicles/FS19_ThueringerHoehe/baseGame.xml")
-            self:loadExtraMissionVehicles(self.directory .. "missionVehicles/FS19_ThueringerHoehe/claasPack.xml")
+            self:loadExtraMissionVehicles(self.directory .. "missionVehicles/FS19_ThueringerHoehe/claasPack.xml")          
         else
             self:loadExtraMissionVehicles(self.directory .. "missionVehicles/baseGame.xml")
             self:loadExtraMissionVehicles(self.directory .. "missionVehicles/claasPack.xml")
         end
+        local userdef = self.directory .. "missionVehicles/userDefined.xml"
+        if fileExists(userdef) then 
+            self:loadExtraMissionVehicles(userdef)
+        end    
+        self:validateMissionVehicles()
         return true
     end
     return false
+end
+
+function BetterContracts:validateMissionVehicles()
+    -- check if vehicle groups for each missiontype/fieldsize are defined
+    local type 
+    for _,mt in ipairs(g_missionManager.missionTypes) do
+        if mt.category == MissionManager.CATEGORY_FIELD or 
+           mt.category == MissionManager.CATEGORY_GRASS_FIELD then
+            type = mt.name
+            for _,f in ipairs({"small","medium","large"}) do
+                if g_missionManager.missionVehicles[type][f] == nil or 
+                    #g_missionManager.missionVehicles[type][f] == 0 then
+                    g_logManager:devWarning("[%s] No missionVehicles for %s missions on %s fields",
+                        self.name, type, f)
+                end
+            end
+        end
+    end
 end
 
 function BetterContracts:loadExtraMissionVehicles(xmlFilename)
@@ -145,6 +168,10 @@ function BetterContracts:loadExtraMissionVehicles(xmlFilename)
     if requiredMod ~= nil and g_modIsLoaded[requiredMod] then
         modDirectory = g_modNameToDirectory[requiredMod]
         hasRequiredMod = true
+    end
+    local overwriteStd = Utils.getNoNil(getXMLBool(xmlFile, "missionVehicles#overwrite"), false)
+    if overwriteStd then 
+       g_missionManager.missionVehicles = {}
     end
     if hasRequiredMod or requiredMod == nil then
         local index = 0
@@ -195,17 +222,31 @@ end
 function BetterContracts:loadExtraMissionVehicles_vehicles(xmlFile, groupKey, modDirectory)
     local index = 0
     local vehicles = {}
+    local modName, ignore 
     while true do
         local vehicleKey = string.format("%s.vehicle(%d)", groupKey, index)
         if hasXMLProperty(xmlFile, vehicleKey) then
             local vehicle = {}
             local baseDirectory = nil
+            local vfile = getXMLString(xmlFile, vehicleKey .. "#filename") or "missingFilename"
+            ignore = false
+            modName = getXMLString(xmlFile, vehicleKey .. "#requiredMod")
             if getXMLBool(xmlFile, vehicleKey .. "#isMod") then
                 baseDirectory = modDirectory
+            elseif modName~= nil then 
+                if g_modIsLoaded[modName]then
+                    baseDirectory = g_modNameToDirectory[modName]
+                else
+                    g_logManager:warning("[%s] required Mod %s not found, ignoring mission vehicle %s",
+                        self.name, modName, vfile)
+                    ignore = true
+                end 
             end
-            vehicle.filename = Utils.getFilename(getXMLString(xmlFile, vehicleKey .. "#filename") or "missingFilename", baseDirectory)
-            vehicle.configurations = self:loadExtraMissionVehicles_configurations(xmlFile, vehicleKey)
-            table.insert(vehicles, vehicle)
+            if not ignore then
+                vehicle.filename = Utils.getFilename(vfile, baseDirectory)
+                vehicle.configurations = self:loadExtraMissionVehicles_configurations(xmlFile, vehicleKey)
+                table.insert(vehicles, vehicle)
+            end
         else
             break
         end
@@ -220,9 +261,19 @@ function BetterContracts:loadExtraMissionVehicles_configurations(xmlFile, vehicl
     while true do
         local configurationKey = string.format("%s.configuration(%d)", vehicleKey, index)
         if hasXMLProperty(xmlFile, configurationKey) then
+            local ignore = false
             local name = getXMLString(xmlFile, configurationKey .. "#name") or "missingName"
             local id = getXMLInt(xmlFile, configurationKey .. "#id") or 1
-            configurations[name] = id
+            local modName = getXMLString(xmlFile, configurationKey .. "#requiredMod")
+            if not g_configurationManager:getConfigurationDescByName(name) then 
+                g_logManager:warning("[%s] configuration %s not found, ignored",
+                        self.name, name)
+            elseif modName~= nil and not g_modIsLoaded[modName] then
+                g_logManager:warning("[%s] required Mod %s not found, ignoring '%s' configuration",
+                        self.name, modName, name)
+            else
+                configurations[name] = id
+            end
         else
             break
         end

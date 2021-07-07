@@ -12,36 +12,6 @@
 
 -------------------- development helper functions ---------------------------------------------------
 function BetterContracts:consoleCommandPrint()
-	actionprint()
-end
-function loadSettings()
-	--load settings from modsSettings folder
-	local key = "SeeCont"
-	local self = g_betterContracts
-	local f = g_betterContracts.modsSettings .. "SeeCont.xml"
-	if fileExists(f) then
-		local xmlFile = loadXMLFile("SeeCont", f, key)
-		self.dispSize = Utils.getNoNil(getXMLInt(xmlFile, key .. "#size"), 1)
-		self.debug = Utils.getNoNil(getXMLBool(xmlFile, key .. "#debug"), false)
-		delete(xmlFile)
-	end
-	if self.debug then
-		print(string.format("read settings from %s: size = %d, debug = %s", f, self.dispSize, self.debug))
-	end
-end
-function saveSettings()
-	local key = "SeeCont"
-	local f = g_betterContracts.modsSettings .. "SeeCont.xml"
-	local xmlFile = createXMLFile("SeeCont", f, key)
-	setXMLFloat(xmlFile, key .. "#turnTime", g_betterContracts.turnTime)
-	setXMLBool(xmlFile, key .. "#debug", g_betterContracts.debug)
-	saveXMLFile(xmlFile)
-	delete(xmlFile)
-	if g_betterContracts.debug then
-		print("** BetterContracts:saved settings to " .. f)
-	end
-end
-function actionprint()
 	-- print table of current missions
 	local sep = string.rep("-", 45)
 	local self = g_betterContracts

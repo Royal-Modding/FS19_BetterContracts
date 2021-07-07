@@ -176,18 +176,19 @@ function sortList(frCon, superfunc)
 		local am, bm = a.mission, b.mission
 
 		if self.sort == 3 then -- sort profit per Minute
-			av = av + self.IdToCont[am.id][2].permin
-			bv = bv + self.IdToCont[bm.id][2].permin
+			-- if permin == 0 for both am, bm, then sort on profit
+			av = av +  50.0 * self.IdToCont[am.id][2].permin + 0.0001 * self.IdToCont[am.id][2].profit
+			bv = bv +  50.0 * self.IdToCont[bm.id][2].permin + 0.0001 * self.IdToCont[bm.id][2].profit
 		elseif self.sort == 2 then -- sort profit
 			av = av + self.IdToCont[am.id][2].profit
 			bv = bv + self.IdToCont[bm.id][2].profit
 		elseif self.sort == 1 then -- sort mission category / field #
-			av = av - 5000 * self.IdToCont[am.id][1]
+			av = av - 10000 * self.IdToCont[am.id][1] - 100 * am.type.typeId
 			if am.field ~= nil then
 				av = av - am.field.fieldId
 			end
 
-			bv = bv - 5000 * self.IdToCont[bm.id][1]
+			bv = bv - 10000 * self.IdToCont[bm.id][1] - 100 * bm.type.typeId
 			if bm.field ~= nil then
 				bv = bv - bm.field.fieldId
 			end
